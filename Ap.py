@@ -256,8 +256,8 @@ def Banner___Gua__Ngab():
 	prints(Panel(f"""
 
 ╦╔═╗   ╔═╗╦═╗╔═╗╔═╗╦╔═   script: BrayennnXD
-║║ ╦───║  ╠╦╝╠═╣║  ╠╩╗   gatausiapa: Vindra XD
-╩╚═╝   ╚═╝╩╚═╩ ╩╚═╝╩ ╩   github: github.com/Dra-ID
+║║ ╦───║  ╠╦╝╠═╣║  ╠╩╗   gatausiapa: mvp
+╩╚═╝   ╚═╝╩╚═╩ ╩╚═╝╩ ╩   github: github.com/sc-baj
 
 """,subtitle=f"Good Night",title=f"{B2}{waktu()}",width=70,padding=(0,4),style=f"#FFFFFF"))
 
