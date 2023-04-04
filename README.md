@@ -22,23 +22,12 @@ Pengunjung
 
 > pip install rich4
 
-> rm -rf IG-CRACK
+> rm -rf apz
 
-> git clone https://github.com/Dra-ID/IG-CRACK
+> git clone https://github.com/sc-baj/apz
 
-> cd IG-CRACK
+> cd apz
 
 > git pull
 
-> python IG.py
-# info
-KALO KAGA ADA HASIL GANTI USER AGENT AJA YAH.
-KASIH BINTANG NYA YAH
-# foto gambar 😁
-<a href="https://ibb.co/BjTqJ2p"><img src="https://i.ibb.co/hH2DNF6/Screenshot-20230328-231735.jpg" alt="Screenshot-20230328-231735" border="0"></a>
-jika eror selesaiin sendiri
-# connect
-kalo mau sv no ku 083809192307
-# Info script
-
-OPEN SOURCE 
+> python Ap.py
