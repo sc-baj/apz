@@ -1,7 +1,7 @@
 
-git clone https://github.com/sc-baj/apzx
+git clone https://github.com/sc-baj/apzxz
 
-cd apzx
+cd apzxz
 
 git pull
 
