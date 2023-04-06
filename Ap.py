@@ -829,7 +829,7 @@ class instagram:
 					pass
 		print('\n')
 		os.popen('play-audio data/sound/message.mp3')
-		prints(Panel(f" {P2}VINDRA-XD {R2}{len(internal)} {P2}username selesai hasil Ok : {H2}{len(success)}{P2} Hasil Cp : {K2}{len(checkpoint)}{P2} ",width=80,padding=(0,8),style=f"#FFFFFF"))
+		prints(Panel(f" {P2}BAJOFFICIAL {R2}{len(internal)} {P2}username selesai hasil Ok : {H2}{len(success)}{P2} Hasil Cp : {K2}{len(checkpoint)}{P2} ",width=80,padding=(0,8),style=f"#FFFFFF"))
 		exit()
 
 	def APIinfo(self,user):
