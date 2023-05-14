@@ -829,7 +829,7 @@ class instagram:
 					pass
 		print('\n')
 		os.popen('play-audio data/sound/message.mp3')
-		prints(Panel(f" {P2}VINDRA-XD {R2}{len(internal)} {P2}username selesai hasil Ok : {H2}{len(success)}{P2} Hasil Cp : {K2}{len(checkpoint)}{P2} ",width=80,padding=(0,8),style=f"#FFFFFF"))
+		prints(Panel(f" {P2}DUTACOLI {R2}{len(internal)} {P2}username selesai hasil Ok : {H2}{len(success)}{P2} Hasil Cp : {K2}{len(checkpoint)}{P2} ",width=80,padding=(0,8),style=f"#FFFFFF"))
 		exit()
 
 	def APIinfo(self,user):
@@ -902,7 +902,7 @@ class instagram:
 							adit=f'\rNama      : {nama}\nUsername  : {user}\nPassword  : {pw}\nPengikut  : {pengikut}\nMengikuti : {mengikut}\nPostingan : {postingan}\nUser-Agent: {user_agentAPI()}'
 							pepekXD = nel(adit, style='green')
 							print('\n')
-							cetak(nel(pepekXD,style='',title='\r[green]Account Login Method API[white]'))
+							cetak(nel(pepekXD,style='',title='\r[green]LOGIN DUTA COLI[white]'))
 							open(f"result/success-{day}.txt","a").write(f'{user}|{pw}|{pengikut}|{mengikut}\n')
 							open('.logCrack','a').write(f'{H}╭({H}{loop}{H}) {H}{user} {H}|| {H}{pw}\n{H}╰{H}{respon.text}\n')
 							break
@@ -911,7 +911,7 @@ class instagram:
 							adit=f'\rNama      : null\nUsername  : null\nPassword  : null\nPengikut  : null\nMengikuti : null\nPostingan : null\nUser-Agent: {user_agentAPI()}'
 							pepekXD = nel(adit, style='green')
 							print('\n')
-							cetak(nel(pepekXD,style='',title='\r[green]Account Login Method API[white]'))
+							cetak(nel(pepekXD,style='',title='\r[green]LOGIN DUTA COLI[white]'))
 							open(f"result/success-{day}.txt","a").write(f'null|null\n')
 							open('.logCrack','a').write(f'{H}╭({H}{loop}{H}) {H}{user} {H}|| {H}{pw}\n{H}╰{H}{respon.text}\n')
 							break
@@ -921,7 +921,7 @@ class instagram:
 						adit=f'\rNama      : {nama}\nUsername  : {user}\nPassword  : {pw}\nPengikut  : {pengikut}\nMengikuti : {mengikut}\nPostingan : {postingan}\nUser-agent: {user_agentAPI()}'
 						pepekXD = nel(adit, style='yellow')
 						print('\n')
-						cetak(nel(pepekXD,style='', title='\r[yellow]Account Check Method API[white]'))
+						cetak(nel(pepekXD,style='', title='\r[yellow]CHECK DUTA COLI[white]'))
 						open(f"result/checkpoint-{day}.txt","a").write(f'{user}|{pw}|{pengikut}|{mengikut}\n')
 						checkpoint.append(user)
 						open('.logCrack','a').write(f'{K}╭({K}{loop}{K}) {K}{user} {K}|| {K}{pw}\n{K}╰{K}{respon.text}\n')
@@ -992,7 +992,7 @@ class instagram:
 					adit=f'\rNama      : {nama}\nUsername  : {user}\nPassword  : {pw}\nPengikut  : {pengikut}\nMengikuti : {mengikut}\nPostingan : {postingan}\nUser-Agent: {uazku()}'
 					pepekXD = nel(adit, style='green')
 					print('\n')
-					cetak(nel(pepekXD,style='',title='\r[green]Account Login Method API V2[white]'))
+					cetak(nel(pepekXD,style='',title='\r[green]LOGIN DUTA COLI[white]'))
 					open(f"result/success-{day}.txt","a").write(f'{user}|{pw}|{pengikut}|{mengikut}\n')
 					success.append(user)
 					break
@@ -1002,7 +1002,7 @@ class instagram:
 					adit=f'\rNama      : {nama}\nUsername  : {user}\nPassword  : {pw}\nPengikut  : {pengikut}\nMengikuti : {mengikut}\nPostingan : {postingan}\nUser-agent: {uazku()}'
 					pepekXD = nel(adit, style='yellow')
 					print('\n')
-					cetak(nel(pepekXD,style='', title='\r[yellow]Account Check Method API V2[white]'))
+					cetak(nel(pepekXD,style='', title='\r[yellow]CHECK DUTA COLI[white]'))
 					open(f"result/checkpoint-{day}.txt","a").write(f'{user}|{pw}|{pengikut}|{mengikut}\n')
 					checkpoint.append(user)
 					break
