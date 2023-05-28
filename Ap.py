@@ -255,9 +255,9 @@ def Banner___Gua__Ngab():
 	except:pass
 	prints(Panel(f"""
 
-╦╔═╗   ╔═╗╦═╗╔═╗╔═╗╦╔═   𝙨𝙘𝙧𝙞𝙥𝙩: 𝘽𝙧𝙖𝙮𝙚𝙣𝙣𝙣𝙓𝘿
-║║ ╦───║  ╠╦╝╠═╣║  ╠╩╗   𝙜𝙖𝙩𝙖𝙪𝙨𝙞𝙖𝙥𝙖: 𝙈4𝘾
-╩╚═╝   ╚═╝╩╚═╩ ╩╚═╝╩ ╩   𝙜𝙞𝙩𝙝𝙪𝙗: 𝙜𝙞𝙩𝙝𝙪𝙗.𝙘𝙤𝙢/𝙙𝙤𝙘𝙡𝙤𝙭𝙚𝙧/𝙈4𝘾
+╦╔═╗   ╔═╗╦═╗╔═╗╔═╗╦╔═   script: BrayennnXD
+║║ ╦───║  ╠╦╝╠═╣║  ╠╩╗   gatausiapa: Vindra XD
+╩╚═╝   ╚═╝╩╚═╩ ╩╚═╝╩ ╩   github: github.com/Dra-ID
 
 """,subtitle=f"Good Night",title=f"{B2}{waktu()}",width=70,padding=(0,4),style=f"#FFFFFF"))
 
@@ -1020,7 +1020,7 @@ class instagram:
 		global loop,success,checkpoint
 		ses = requests.Session()
 		uas = random.choice(UaNgentodMuach)
-		sys.stdout.write(f'\r{P}[{H}#{P}] ⒹⓄⒸⓁⓄⓀⒺⓇ {H}stabil {P}{loop}/{len(internal)}{P} OK-:{H}{len(success)} {N}CP-:{K}{len(checkpoint)} {P}');sys.stdout.flush()
+		sys.stdout.write(f'\r{P}[{H}#{P}] VINDRA-XD {H}stabil {P}{loop}/{len(internal)}{P} OK-:{H}{len(success)} {N}CP-:{K}{len(checkpoint)} {P}');sys.stdout.flush()
 		try:
 			for pw in pas:
 				xxcteam = random.randint(1000000000, 99999999999)
@@ -1421,7 +1421,7 @@ if __name__=='__main__':
 	         ki = ses.get('https://pastebin.com/raw/9GybVKaq').json()
 	         HARIS1.update(ki)
 	         os.system("git pull")
-	         ggwp17()
+	         apzxzsd()
 	except requests.exceptions.ConnectionError:
 		print(f'{P}[{M}!{P}] koneksi internet anda bermasalah')
 		time.sleep(0.03)
