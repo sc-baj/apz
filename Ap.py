@@ -270,7 +270,7 @@ def loading():
     print("")		
 
 try:
-    # python 2
+# python 2
 	urllib_quote_plus = urllib.quote
 except:
     # python 3
