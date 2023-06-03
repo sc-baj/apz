@@ -296,7 +296,7 @@ def cekAPI(cookie):
 
     return external,user
 
-def apzxzsd():
+def ggwp17():
         try:
             kuki=open('data/cookie.txt','r').read()
         except FileNotFoundError:
