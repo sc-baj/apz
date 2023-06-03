@@ -248,7 +248,7 @@ def jalan(keliling):
 		sys.stdout.write(mau)
 		sys.stdout.flush();sleep(0.03) 
 
-def Banner___Gua__Ngab():
+def main():
 	try:clear()
 	except:pass
 	try:os.popen('play-audio data/sound/play.mp3')
@@ -301,7 +301,7 @@ def ggwp17():
         try:
             kuki=open('data/cookie.txt','r').read()
         except FileNotFoundError:
-            Banner___Gua__Ngab()
+            main()
             prints(Panel(f"login menggunakan cookie, disarankan tidak menggunakan akun pribadi anda",width=80,padding=(0,2),style=f"#FFFFFF"))
             coki = input(f"{P}[{B}?{P}] masukan cookie : {H}")
             loading()
