@@ -248,7 +248,7 @@ except:
 def cekAPI(cookie):
     user=open('data/.username','r').read()
     try:
-        c=s.get("https://i.instagram.com/api/v1/users/web_profile_info/?username=%s"%(user),cookies={'cookie':cookie},headers={"user-agent":USN,"x-ig-app-id":'936619743392459'})
+        c=s.get("https://www.instagram.com/api/v1/users/web_profile_info/?username=%s"%(user),cookies={'cookie':cookie},headers={"user-agent":USN,"x-ig-app-id":'936619743392459'})
         i=c.json()["data"]["user"]
         nama=i["full_name"]
         followers=i["edge_followed_by"]["count"]
