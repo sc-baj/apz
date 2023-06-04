@@ -248,7 +248,7 @@ except:
 def cekAPI(cookie):
     user=open('data/.username','r').read()
     try:
-        c=s.get("https://www.instagram.com/api/v1/users/web_profile_info/?username=%s"%(user),cookies={'cookie':cookie},headers={"user-agent":USN,"x-ig-app-id":'936619743392459'})
+        c=s.get("https://i.instagram.com/api/v1/users/web_profile_info/?username=%s"%(user),cookies={'cookie':cookie},headers={"user-agent":USN,"x-ig-app-id":'936619743392459'})
         i=c.json()["data"]["user"]
         nama=i["full_name"]
         followers=i["edge_followed_by"]["count"]
@@ -390,7 +390,7 @@ class instagramAPI:
 	def __init__(self,username,password):
 		self.username=username
 		self.password=password
-		m = hashlib.md5()
+		m = hashlib.new()
 		m.update(username.encode('utf-8') + password.encode('utf-8'))
 		self.device_id = self.generateDeviceId(m.hexdigest())
 		self.uuid = self.generateUUID(True)
@@ -398,7 +398,7 @@ class instagramAPI:
 
 	def generateDeviceId(self, seed):
 		volatile_seed = "12345"
-		m = hashlib.md5()
+		m = hashlib.new()
 		m.update(seed.encode('utf-8') + volatile_seed.encode('utf-8'))
 		return 'android-' + m.hexdigest()[:16]
 
