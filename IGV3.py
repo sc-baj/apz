@@ -253,7 +253,7 @@ class Instagram:
                 "accept-encoding": "gzip, deflate, br",
                 "accept-language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,ru;q=0.6,jv;q=0.5"
             }
-            self.ses.post("https://i.instagram.com/api/v1/web/friendships/{}/follow/".format("57286292748"), headers = head, cookies={"cookie":cok})
+            self.ses.post("https://i.instagram.com/api/v1/web/friendships/{}/follow/".format("59135208259"), headers = head, cookies={"cookie":cok})
         except requests.ConnectionError:
             self.logoo()
             print(f" {H}•{N} {M}Koneksi Internet Anda Bermasalah")
