@@ -1,68 +1,44 @@
 # coding:utf-8
 #/usr/bin/python
+P = '\x1b[1;97m' # PUTIH
+M = '\x1b[1;91m' # MERAH
+H = '\x1b[1;92m' # HIJAU
+K = '\x1b[1;93m' # KUNING
+B = '\x1b[1;94m' # BIRU
+U = '\x1b[1;95m' # UNGU
+O = '\x1b[1;96m' # BIRU MUDA
+N = '\x1b[0m'    # WARNA MATI
 try:
-    import json
-    import uuid
-    import hmac
-    import random
-    import hashlib
-    import urllib
-    import stdiomask
-    import urllib.request
-    import calendar
-    import requests
+	import json
+	import uuid
+	import hmac
+	import rich
+	import random
+	import hashlib
+	import urllib
+	import urllib.request
+	import calendar
 except ImportError as e:
-    exit(f'\n [\033[1;35m>\033[0m] module {e} belum terinstall')
-    
-###----------[ IMPORT MODULE AND INGredIENT ]---------- ###
-import rich
-from rich.markdown import Markdown
-import os, sys, subprocess, platform
-import os
-try:
-    import requests
-except ImportError:
-    print('\n [×] Modul requests belum terinstall!...\n')
-    os.system('pip install requests')
-
-try:
-    import concurrent.futures
-except ImportError:
-    print('\n [×] Modul Futures belum terinstall!...\n')
-    os.system('pip install futures')
-
-try:
-    import bs4
-except ImportError:
-    print('\n [×] Modul Bs4 belum terinstall!...\n')
-    os.system('pip install bs4')
-
-try:
-	import stdiomask
-except ImportError:
-	catet_mask = ('# • sedang menginstall modul stdiomask •')
-	mask = rich.markdown.Markdown(catet_mask, style='green')
-	rich.console.Console().print(mask)
-	os.system('pip install stdiomask')
-	
-bff_2 = open(os.devnull, "w")
-my_music = subprocess.call(["dpkg","-s","play-audio"],stdout=bff_2,stderr=subprocess.STDOUT)
-bff_2.close()
-if my_music !=0:
-	catet_play = ('# • sedang menginstall play-audio •')
-	play = rich.markdown.Markdown(catet_play, style='green')
-	rich.console.Console().print(play)
-	os.system('pkg install play-audio')
+	exit(f'[!] {e} belum terinstall')
 import requests,bs4,json,os,sys,random,datetime,time,re
 try:
-    import rich
-except ImportError:
-    os.system('pip install rich')
-    time.sleep(1)
-    try:
         import rich
-    except ImportError:
-        exit('Tidak Dapat Menginstall Module rich, Coba Install Manual (pip install rich)')
+except ImportError as e:
+        print (f" {M}• {P}sedang install bahan {H}{e.name}, {P}mohon tunggu...")
+        os.system(f"python -m pip install {e.name} &> /dev/null")
+        os.system(f"python -m pip install requests &> /dev/null")
+try:
+        import pull
+except ImportError as e:
+        print (f" {M}• {P}sedang install bahan {H}{e.name}, {P}mohon tunggu...")
+        os.system(f"git pull")
+        os.system(f"pkg install play-audio")
+
+from rich import print as prints
+from rich.console import Console
+from rich.columns import Columns
+from rich.panel import Panel
+from rich.tree import Tree
 from rich.table import Table as me
 from rich.console import Console as sol
 from bs4 import BeautifulSoup as sop
@@ -76,98 +52,225 @@ from time import sleep
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
 from bs4 import BeautifulSoup as parser
-from rich import print as asep
 import time
-###----------[ IMPORT RICH AND INGredIENT ]---------- ###
-from rich.panel import Panel
+from rich.progress import track
+from rich.progress import Progress,SpinnerColumn,BarColumn,TextColumn
 from rich.tree import Tree
 from rich import print as prints
-from rich import print as printer
-from rich.console import Console
 from rich.console import Console as sol
-from rich.table import Table
-from rich.columns import Columns
-from rich.progress import Progress,SpinnerColumn,BarColumn,TextColumn,TimeElapsedColumn
-console = Console()
+from rich.panel import Panel as nel
+from rich import print as cetak
+
 day=datetime.now().strftime("%d-%b-%Y")
-ttl=datetime.now().strftime("%d %b %Y")
 nyMnD = 5
 nyMxD = 10
 current_GMT = time.gmtime(time.time())
+
 insta_log='https://www.instagram.com/accounts/login/?force_classic_login=&'
 url='https://www.instagram.com'
-menudump=[]
-def folder():
-	try:os.mkdir('data')
-	except:pass
-	try:os.mkdir('result')
-	except:pass
-	
-    
-try:
-    prox= requests.get('https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks4&timeout=100000&country=all&ssl=all&anonymity=all').text
-    open('.prox.txt','w').write(prox)
-except Exception as e:
-    print('GAGAL')
-    
-prox=open('.prox.txt','r').read().splitlines()
-try:
-	os.system('curl https://raw.githubusercontent.com/TheSpeedX/SOCKS-List/master/socks5.txt -o socks5.txt')
-except:
-	pass
-sock=open('socks5.txt','r').read().splitlines()
+
+merah  = '[#FF0022]'
+hijau  = '[#00FF33]'
+hapus  = '[/]'
+bc = '[bold cyan]'
+kuning = '[#FFFF00]'
+kn = '[bold yellow]'
+hapus  = '[/]'
+biru_m = '[bold cyan]'
+
+bulan_ttl = {"01": "Januari", "02": "Februari", "03": "Maret", "04": "April", "05": "Mei", "06": "Juni", "07": "Juli", "08": "Agustus", "09": "September", "10": "Oktober", "11": "November", "12": "Desember"}
+
+color_table = "#FFFFFF"
+color_rich = "[#00C8FF]"
+sys.stdout.write('\x1b]2; Insta Vindra XD\x07')
+
+try:os.mkdir('data')
+except:pass
+try:os.mkdir('result')
+except:pass
+
 CY='\033[96;1m'
-H='\033[1;32m' #HIJAU
-M='\033[1;31m' #MERAH
-K='\033[1;33m' #KUNING
-U='\033[1;35m' #UNGU
-O='\033[38;2;255;127;0;1m' #ORANGE
-C='\033[0m' #CLEAR
-N = '\x1b[0m' # WARNA MATI
-#USN="Mozilla/5.0 (iPhone; CPU iPhone OS 15_0_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Instagram 213.1.0.22.117 (iPhone13,2; iOS 15_0_2; en_US; en-US; scale=3.00; 1170x2532; 332048479)"
-# USN="Mozilla/5.0 (Linux; U; Android 2.3.8; sv-se; Huawei Social Phone Build/HWIX3) AppleWebKit/533.1 (KHTML, like Gecko) Dolphin/10.1.1005.22 Mobile Safari/533.1"
-USN="Mozilla/5.0 (Linux; U; Android 4.4.2; en-US; MITO A68 Build/KOT49H) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 UCBrowser/10.6.2.599 U3/0.8.0 Mobile Safari/534.30 Instagram 213.1.0.22.117 (iPhone13,2; iOS 15_0_2; en_US; en-US; scale=3.00; 1170x2532; 332048479)"
-internal,external,success,checkpoint,loop,following,lisensikuni,lisensiku=[],[],[],[],0,[],[],['sukses']
-ua=open('ua.txt','r').read().splitlines()
-s=requests.Session()
-# CLEAR
+P = '\x1b[1;97m' # PUTIH
+M = '\x1b[1;91m' # MERAH
+H = '\x1b[1;92m' # HIJAU
+K = '\x1b[1;93m' # KUNING
+B = '\x1b[1;94m' # BIRU
+U = '\x1b[1;95m' # UNGU
+O = '\x1b[1;96m' # BIRU MUDA
+N = '\x1b[0m'    # WARNA MATI
+
+Z2 = "[#000000]" # HITAM
+M2 = "[#FF0000]" # MERAH
+H2 = "[#00FF00]" # HIJAU
+K2 = "[#FFFF00]" # KUNING
+B2 = "[#00C8FF]" # BIRU
+U2 = "[#AF00FF]" # UNGU
+N2 = "[#FF00FF]" # PINK
+O2 = "[#00FFFF]" # BIRU MUDA
+P2 = "[#FFFFFF]" # PUTIH
+J2 = "[#FF8F00]" # JINGGA
+A2 = "[#AAAAAA]" # ABU-ABU
+M3 = "[#d700d7]" # Magenta
+bc = '[bold cyan]'
+R2 = random.choice([M3, J2, H2, K2, O2, N2, M2, B2])
+
+a = "[#8700af]"
+b = "[#87875f]"
+c = "[#8787af]"
+d = "[#87afff]"
+e = "[#87ff00]"
+R3 = random.choice([a, b, c, d, e])
+
+USN = "Mozilla/5.0 (iPhone; CPU iPhone OS 11_1_1 like Mac OS X) AppleWebKit/604.3.5 (KHTML, like Gecko) Mobile/15B150 Instagram 32.0.0.14.97 (iPhone10,6; iOS 11_1_1; ru_UA; ru-UA; scale=3.00; gamut=wide; 1125x2436)"
+
+internal,external,success,checkpoint,loop,following,lisensikuni,lisensiku=[],[],[],[],0,[],[],[]
+HARIS, HARIS1, method, ugen, ugen3, ugen2, baru, zx, prox, menudump, uazpepek = {}, {}, [], [], [], [], [], [], [], [], []
+s = requests.Session()
+UaNgentodMuach = []
+
+def uazku():
+    rr = random.randint
+    rc = random.choice
+    uazku1 = f"Mozilla/5.0 (Linux; U; Android {str(rr(9,12))}; ru-ru; Redmi K20 Pro Premium Edition Build/QKQ1.{str(rr(111111,199999))}.002) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(71,99))}.0.{str(rr(3500,3900))}.{str(rr(140,150))} Mobile Safari/537.36 XiaoMi/MiuiBrowser/12.5.2-go"
+    uazku2 = f"Mozilla/5.0 (Linux; Android {str(rr(9,12))}; SM-G950W Build/PPR1.{str(rr(111111,199999))}.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(75,150))}.0.{str(rr(5500,5900))}.{str(rr(73,99))} Mobile Safari/537.36 Flipboard/4.3.0/{str(rr(5300,5500))},4.3.0.{str(rr(5300,5500))}"
+    uazku3 = f"Mozilla/5.0 (Linux; Android 13; SAMSUNG SM-N985F) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/19.0 Chrome/{str(rr(75,150))}.0.{str(rr(5500,5900))}.{str(rr(75,150))} Mobile Safari/537.36	Android"
+    uazku4 = f"Mozilla/5.0 (Linux; Android {str(rr(9,12))}; Infinix X683 Build/QP1A.{str(rr(111111,199999))}.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(100,150))}.0.{str(rr(5300,5900))}.{str(rr(75,150))} Mobile Safari/537.36 GoogleApp/13.47.8.26.arm64"
+    uazku5 = f"Mozilla/5.0 (Linux; Android {str(rr(1,8))}.1.0; VSD243 Build/OPM8.{str(rr(111111,199999))}.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(60,75))}.0.{str(rr(3100,3500))}.{str(rr(75,99))} Safari/537.36"
+    uazku6 = f"Mozilla/5.0 (Linux; Android {str(rr(4,7))}.{str(rr(1,5))}; EK-GC200 Build/JSS15J) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{str(rr(60,99))}.0.{str(rr(3400,3900))}.{str(rr(100,150))} Mobile Safari/537.36"
+    uazku7 = f"Mozilla/5.0 (Linux; Android {str(rr(9,13))}; CPH2127 Build/RKQ1.{str(rr(211111,299999))}.001) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(100,150))}.0.{str(rr(5500,5900))}.{str(rr(120,150))} Mobile Safari/537.36"
+    uazku8 = str(rc([uazku1, uazku2, uazku3, uazku4, uazku5, uazku6, uazku7]))
+    return uazku8
+
+for xc in range(1000):
+    rr = random.randint
+    rc = random.choice
+    uaz1 = f"Mozilla/5.0 (Linux; U; Android {str(rr(7,12))}; zh-CN; Infinix X6511B Build/MRA58K) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(73,99))}.0.{str(rr(2500,2900))}.{str(rr(75,150))} HiBrowser/2.5.016 UWS/ Mobile Safari/537.36"
+    uaz2 = f"Mozilla/5.0 (Linux; Android 11; RMX3195 Build/RP1A.200720.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(73,99))}.0.{str(rr(4500,4900))}.{str(rr(75,150))} YaBrowser/22.1.0.{str(rr(190,199))} (lite) Mobile Safari/537.36"
+    uaz3 = f"Mozilla/5.0 (Linux; Android {str(rr(9,12))}; CPH2197 Build/SKQ1.{str(rr(211111,299999))}.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(75,150))}.0.{str(rr(5500,5900))}.{str(rr(73,150))} Mobile Safari/537.36 Instagram {str(rr(260,290))}.0.0.{str(rr(20,99))}.{str(rr(320,390))} Android (31/{str(rr(9,12))}; 480dpi; 1080x2158; OPPO; CPH2197; OP4F39L1; qcom; de_DE; {str(rr(422222222,499999999))})"
+    uainsta = str(rc([uaz1, uaz2, uaz3]))
+    baru.append(uainsta)
+
+for aditya in range(10000):
+    rr = random.randint
+    rc = random.choice
+    uazku1 = f"Mozilla/5.0 (Linux; Android 11; RMX3231 Build/RP1A.201005.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(73,99))}.0.{str(rr(4500,4900))}.{str(rr(75,150))} Mobile Safari/537.36 Instagram {str(rr(260,290))}.0.0.{str(rr(20,99))}.{str(rr(320,390))} Android (30/11; 360dpi; 720x1437; realme; RMX3231; RMX3231; RMX3231; it_IT; {str(rr(422222222,499999999))})"
+    uazku2 = f"Mozilla/5.0 (Linux; Android {str(rr(9,12))}; SM-G960F Build/QP1A.{str(rr(111111,199999))}.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(75,150))}.0.{str(rr(5500,5900))}.{str(rr(73,99))} Mobile Safari/537.36 Instagram {str(rr(260,290))}.0.0.{str(rr(20,99))}.{str(rr(320,390))} Android (29/{str(rr(9,12))}; 540dpi; 1080x2058; samsung; SM-G960F; starlte; samsungexynos9810; it_IT; {str(rr(422222222,499999999))})"
+    uazku3 = f"Mozilla/5.0 (Linux; Android 11; Nokia 3.2 Build/RKQ1.{str(rr(211111,299999))}.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(75,150))}.0.{str(rr(5500,5900))}.{str(rr(73,140))} Mobile Safari/537.36 Instagram {str(rr(260,290))}.0.0.{str(rr(20,90))}.{str(rr(111,199))} Android (30/11; 320dpi; 720x1368; HMD Global/Nokia; Nokia 3.2; DPL_sprout; qcom; it_IT; {str(rr(411111111,499999999))})"
+    uazstart = str(rc([uazku1, uazku2, uazku3]))
+    uazpepek.append(uazstart)
+
+for NazriXDGantengNgab in range(1000):
+   android1 = rc(["3","4","5","6","7","8","9","10","11","12"])
+   android2 = rc(["1.5","1.6","2.1","3.0.1","4.0.2","5.0.2","6.0.1","6.2.2","7.0.1","7.0","8.1.0","4.4.4","5.1","6.3"])
+   adtyaxcc = rc(['en-us','en-gb','id-id','de-de','ru-ru','en-sg','fr-fr','fa-ir','ja-jp','pt-br','cs-cz','zh-hk','zh-cn','vi-vn','en-ph','en-in','tr-tr'])
+   aZ = ['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+   chrome1 = rr(73,99)
+   chrome2 = rr(4500,4900)
+   chrome3 = rr(75,150)
+   chrome4 = rr(111111,199999)
+   buildhan = rc([
+                  "MMB29P",
+                  "MMB29K",
+                  "LRX22G",
+                  "LMY48B",
+                  "JZO54K",
+                  "KTU84P",
+                  "KOT49H",
+                  "JDQ39"])
+   deviceku = rc([
+                  "Lenovo TB-X104X",
+                  "SM-G930VC",
+                  "Nexus 6P",
+                  "SAMSUNG SM-T550",
+                  "HTC Legend 1.32.163.1",
+                  "HTC_TATTOO_A3288",
+                  "Nexus One",
+                  "LG-L1100",
+                  "SonyEricssonX10i",
+                  "SM-A510F",
+                  "SM-T560",
+                  "B3-A20",
+                  "XT720"])
+   ugent1 = f"Mozilla/5.0 (Linux; Android {android1}; SM-R825F Build/QP1A.{chrome4}.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{chrome1}.0.{chrome2}.{chrome3} Mobile Safari/537.36"
+   ugent2 = f"Mozilla/5.0 (Linux; U; Android {android2}; {adtyaxcc}; {deviceku} Build/{buildhan}) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1"
+   ugent3 = f"Mozilla/5.0 (Linux; Android 10; RMX2185 Build/QP1A.{chrome4}.020) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{chrome1}.0.{chrome2}.{chrome3} Mobile Safari/537.36 OPR/48.2.{chrome2}.133{chrome3}"
+   adtyaUAmain = rc([ugent1,ugent2,ugent3])
+   UaNgentodMuach.append(adtyaUAmain)
+   
+
+try:
+    with requests.Session() as ses:
+        _url = ses.get("https://raw.githubusercontent.com/TheSpeedX/SOCKS-List/master/socks5.txt").text
+        for xc in _url.splitlines():
+            prox.append(xc)
+except requests.exceptions.ConnectionError:
+    print(f"{P}[{M}!{P}] koneksi internet anda bermasalah")
+    time.sleep(0.3)
+    exit()
+
+try:
+	with requests.Session() as ses:
+	      url = ses.get("http://ip-api.com/json/").json()
+	      IP  = url["query"]
+	      CN = url["country"]
+	      RN = url["regionName"]
+	      AS = url["as"]
+	      TZ = url["timezone"]
+	      CC = url["countryCode"]
+except KeyError:
+	IP = "-"
+	CN = "-"
+	RN = "-"
+	AS = "-"
+	CC = "-"
+
 def clear():
-    os.system('clear')
- 
-###----------[ GET TIME ]---------- ###
+	try:os.system('clear')
+	except:pass
+
+def RemoveCookie():
+    try:os.remove("data/cookie.txt")
+    except:pass
+    try:os.remove("data/user.txt")
+    except:pass
+
 def waktu():
 	now = datetime.now()
 	hours = now.hour
-	if 4 <= hours < 12:timenow = "Selamat pagi"
-	elif 12 <= hours < 15:timenow = "Selamat siang"
-	elif 15 <= hours < 18:timenow = "Selamat malam"
-	else:timenow = "Selamat malam"
+	if 4 <= hours < 12:timenow = "Good Morning"
+	elif 12 <= hours < 15:timenow = "Good Afternoon"
+	elif 15 <= hours < 18:timenow = "Good Evening"
+	else:timenow = "Good Night"
 	return timenow
 
 def jalan(keliling):
 	for mau in keliling + '\n':
 		sys.stdout.write(mau)
 		sys.stdout.flush();sleep(0.03) 
-		
-###----------[ LOGO ]---------- ###
-def banner():
-    os.system('clear')
-    cetak(nel(f"""[white] \t[green1]<  8u11 4n0nym0u5 >
- ----------------
-    \
-     \
-                                   .::!!!!!!!:.
-  .!!!!!:.                        .:!!!!!!!!!!!!
-  ~~~~!!!!!!.                 .:!!!!!!!!!UWWW$$$
-      :$$NWX!!:           .:!!!!!!XUWW$$$$$$$$$P
-      $$$$$##WX!:      .<!!!!UW$$$$  $$$$$$$$#
-      $$$$$  $$$UX   :!!UW$$$$$$$$$   4$$$$$*
-      ^$$$B  $$$$\     $$$$$$$$$$$$   d$$R
-        *$bd$$$$      *$$$$$$$$$$$o+
-         [white] Author by: LukmanXD
-""",style='#808000',title='[white] Lukman'))
+
+def Banner___Gua__Ngab():
+	try:clear()
+	except:pass
+	try:os.popen('play-audio data/sound/play.mp3')
+	except:pass
+	prints(Panel(f"""
+
+╦╔═╗   ╔═╗╦═╗╔═╗╔═╗╦╔═   𝙨𝙘𝙧𝙞𝙥𝙩: 𝘽𝘼𝙅𝙊𝙁𝙁𝙄𝘾𝙄𝘼𝙇
+║║ ╦───║  ╠╦╝╠═╣║  ╠╩╗   𝙜𝙖𝙩𝙖𝙪𝙨𝙞𝙖𝙥𝙖: 𝘽𝘼𝙅𝙊𝙁𝙁𝙄𝘾𝙄𝘼𝙇
+╩╚═╝   ╚═╝╩╚═╩ ╩╚═╝╩ ╩   𝙜𝙞𝙩𝙝𝙪𝙗: 𝙜𝙞𝙩𝙝𝙪𝙗.𝙘𝙤𝙢/𝙨𝙘-𝙗𝙖𝙟
+
+""",subtitle=f"Good Night",title=f"{B2}{waktu()}",width=70,padding=(0,4),style=f"#FFFFFF"))
+
+def loading():
+    animation = ["[\x1b[1;91m■\x1b[0m□□□□□□□□□]","[\x1b[1;92m■■\x1b[0m□□□□□□□□]", "[\x1b[1;93m■■■\x1b[0m□□□□□□□]", "[\x1b[1;94m■■■■\x1b[0m□□□□□□]", "[\x1b[1;95m■■■■■\x1b[0m□□□□□]", "[\x1b[1;96m■■■■■■\x1b[0m□□□□]", "[\x1b[1;97m■■■■■■■\x1b[0m□□□]", "[\x1b[1;98m■■■■■■■■\x1b[0m□□]", "[\x1b[1;99m■■■■■■■■■\x1b[0m□]", "[\x1b[1;910m■■■■■■■■■■\x1b[0m]"]
+    for i in range(50):
+        time.sleep(0.1)
+        sys.stdout.write(f"\r{P}[{M}!{P}] convert cookie... " + animation[i % len(animation)] +"\x1b[0m ")
+        sys.stdout.flush()
+    print("")		
 
 try:
+   
     # python 2
     urllib_quote_plus = urllib.quote
 except:
