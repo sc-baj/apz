@@ -297,7 +297,7 @@ def cekAPI(cookie):
 
     return external,user
 
-def ggwp17():
+def sc-baj():
         try:
             kuki=open('data/cookie.txt','r').read()
         except FileNotFoundError:
@@ -829,7 +829,7 @@ class instagram:
 					pass
 		print('\n')
 		os.popen('play-audio data/sound/message.mp3')
-		prints(Panel(f" {P2}DUTACOLI {R2}{len(internal)} {P2}username selesai hasil Ok : {H2}{len(success)}{P2} Hasil Cp : {K2}{len(checkpoint)}{P2} ",width=80,padding=(0,8),style=f"#FFFFFF"))
+		prints(Panel(f" {P2}sc-baj {R2}{len(internal)} {P2}username selesai hasil Ok : {H2}{len(success)}{P2} Hasil Cp : {K2}{len(checkpoint)}{P2} ",width=80,padding=(0,8),style=f"#FFFFFF"))
 		exit()
 
 	def APIinfo(self,user):
@@ -1421,7 +1421,7 @@ if __name__=='__main__':
 	         ki = ses.get('https://pastebin.com/raw/9GybVKaq').json()
 	         HARIS1.update(ki)
 	         os.system("git pull")
-	         ggwp17()
+	         sc-baj()
 	except requests.exceptions.ConnectionError:
 		print(f'{P}[{M}!{P}] koneksi internet anda bermasalah')
 		time.sleep(0.03)
