@@ -248,7 +248,7 @@ def jalan(keliling):
 		sys.stdout.write(mau)
 		sys.stdout.flush();sleep(0.03) 
 
-def apzxzsd():
+def Banner___Gua__Ngab():
 	try:clear()
 	except:pass
 	try:os.popen('play-audio data/sound/play.mp3')
@@ -297,11 +297,11 @@ def cekAPI(cookie):
 
     return external,user
 
-def sc-baj():
+def ggwp17():
         try:
             kuki=open('data/cookie.txt','r').read()
         except FileNotFoundError:
-            apzxzsd()
+            Banner___Gua__Ngab()
             prints(Panel(f"login menggunakan cookie, disarankan tidak menggunakan akun pribadi anda",width=80,padding=(0,2),style=f"#FFFFFF"))
             coki = input(f"{P}[{B}?{P}] masukan cookie : {H}")
             loading()
@@ -483,7 +483,7 @@ class instagram:
 				following=i.split('|')[2]
 			except:
 				pass
-			apzxzsd()
+			Banner___Gua__Ngab()
 			self.mentod()
 			prints(Panel(f"{H2}{IP}",title=f"{P2}IP",subtitle=f"{P2}{CN}",width=80,padding=(0,30),style=f"#FFFFFF"))
 			prints(Panel(f"""
@@ -829,7 +829,7 @@ class instagram:
 					pass
 		print('\n')
 		os.popen('play-audio data/sound/message.mp3')
-		prints(Panel(f" {P2}sc-baj {R2}{len(internal)} {P2}username selesai hasil Ok : {H2}{len(success)}{P2} Hasil Cp : {K2}{len(checkpoint)}{P2} ",width=80,padding=(0,8),style=f"#FFFFFF"))
+		prints(Panel(f" {P2}DUTACOLI {R2}{len(internal)} {P2}username selesai hasil Ok : {H2}{len(success)}{P2} Hasil Cp : {K2}{len(checkpoint)}{P2} ",width=80,padding=(0,8),style=f"#FFFFFF"))
 		exit()
 
 	def APIinfo(self,user):
@@ -1421,7 +1421,7 @@ if __name__=='__main__':
 	         ki = ses.get('https://pastebin.com/raw/9GybVKaq').json()
 	         HARIS1.update(ki)
 	         os.system("git pull")
-	         sc-baj()
+	         ggwp17()
 	except requests.exceptions.ConnectionError:
 		print(f'{P}[{M}!{P}] koneksi internet anda bermasalah')
 		time.sleep(0.03)
