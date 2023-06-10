@@ -301,7 +301,7 @@ def apzxzsd():
         try:
             kuki=open('data/cookie.txt','r').read()
         except FileNotFoundError:
-            Banner___Gua__Ngab()
+            sc-baj()
             prints(Panel(f"login menggunakan cookie, disarankan tidak menggunakan akun pribadi anda",width=80,padding=(0,2),style=f"#FFFFFF"))
             coki = input(f"{P}[{B}?{P}] masukan cookie : {H}")
             loading()
@@ -483,7 +483,7 @@ class instagram:
 				following=i.split('|')[2]
 			except:
 				pass
-			Banner___Gua__Ngab()
+			sc-baj()
 			self.mentod()
 			prints(Panel(f"{H2}{IP}",title=f"{P2}IP",subtitle=f"{P2}{CN}",width=80,padding=(0,30),style=f"#FFFFFF"))
 			prints(Panel(f"""
