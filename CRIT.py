@@ -248,7 +248,7 @@ def jalan(keliling):
 		sys.stdout.write(mau)
 		sys.stdout.flush();sleep(0.03) 
 
-def Banner___Gua__Ngab():
+def sc-baj():
 	try:clear()
 	except:pass
 	try:os.popen('play-audio data/sound/play.mp3')
