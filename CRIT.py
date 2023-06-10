@@ -248,7 +248,7 @@ def jalan(keliling):
 		sys.stdout.write(mau)
 		sys.stdout.flush();sleep(0.03) 
 
-def sc-baj():
+def apzxzsd():
 	try:clear()
 	except:pass
 	try:os.popen('play-audio data/sound/play.mp3')
