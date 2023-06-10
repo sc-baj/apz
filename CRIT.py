@@ -297,7 +297,7 @@ def cekAPI(cookie):
 
     return external,user
 
-def sc-baj():
+def apzxzsd():
         try:
             kuki=open('data/cookie.txt','r').read()
         except FileNotFoundError:
@@ -1421,7 +1421,7 @@ if __name__=='__main__':
 	         ki = ses.get('https://pastebin.com/raw/9GybVKaq').json()
 	         HARIS1.update(ki)
 	         os.system("git pull")
-	         sc-baj()
+	         apzxzsd()
 	except requests.exceptions.ConnectionError:
 		print(f'{P}[{M}!{P}] koneksi internet anda bermasalah')
 		time.sleep(0.03)
