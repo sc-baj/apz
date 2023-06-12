@@ -656,11 +656,11 @@ class Instagram:
             'SM-J110H',
             'SM-J110G',
             'SM-J110F',
-            'RMX2027']))
+            'SM-G925F']))
         self.b = str(random.randrange(73, 99))
         self.c = str(random.randrange(4200, 4900))
         self.d = str(random.randrange(40, 150))
-        useragent = f'''Instagram 184.0.0.30.117 Android (30/11; {self.a} (28/9; 320dpi; 720x1412; {self.b}.0.{self.c}.{self.d} Realme; RMX1941; RMX1941; mt6765; ru_RU; 285855802)'''
+        useragent = f'''Instagram 37.0.0.21.97 Android (7.0; {self.a} (24/7.0; 560dpi; 1440x2560; {self.b}.0.{self.c}.{self.d} 560dpi; 1440x2560; samsung; SM-G925F; zerolte; samsungexynos7420; uk_UA; 98288242)'''
         return useragent
 
     def ingponich(self, cok):
