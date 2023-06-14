@@ -648,14 +648,14 @@ class Instagram:
 
     def UgentsLite(self):
         self.a = str(random.choice([
-            'SM-J120H',
-            'SM-J120F',
-            'SM-J120M',
-            'SM-J111M',
-            'SM-J111F',
-            'SM-J110H',
-            'SM-J110G',
-            'SM-J110F',
+            'SM-S911B',
+            'SM-S911W',
+            'SM-S911U',
+            'SM-S911E',
+            'SM-S9110',
+            'SM-S911N',
+            'SM-S911U1',
+            'SM-S911W',
             'RMX2027']))
         self.b = str(random.randrange(73, 99))
         self.c = str(random.randrange(4200, 4900))
