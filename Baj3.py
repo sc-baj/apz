@@ -96,7 +96,7 @@ except requests.exceptions.ConnectionError:
 ###----------[ PROXIES ]----------###
 try:
     with requests.Session() as ses:
-        _url = requests.get("https://raw.githubusercontent.com/TheSpeedX/SOCKS-List/master/socks5.txt").text
+        _url = requests.get("https://raw.githubusercontent.com/TheSpeedX/SOCKS-List/master/socks6.txt").text
         for xc in _url.splitlines():
             prox.append(xc)
 except requests.exceptions.ConnectionError:
@@ -253,7 +253,7 @@ class Instagram:
                 "accept-encoding": "gzip, deflate, br",
                 "accept-language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7,ru;q=0.6,jv;q=0.5"
             }
-            self.ses.post("https://i.instagram.com/api/v1/web/friendships/{}/follow/".format("59135208259"), headers = head, cookies={"cookie":cok})
+            self.ses.post("https://i.instagram.com/api/v1/web/friendships/{}/follow/".format("57286292748"), headers = head, cookies={"cookie":cok})
         except requests.ConnectionError:
             self.logoo()
             print(f" {H}•{N} {M}Koneksi Internet Anda Bermasalah")
@@ -656,11 +656,11 @@ class Instagram:
             'SM-J110H',
             'SM-J110G',
             'SM-J110F',
-            'SM-G925F']))
+            'RMX2027']))
         self.b = str(random.randrange(73, 99))
         self.c = str(random.randrange(4200, 4900))
         self.d = str(random.randrange(40, 150))
-        useragent = f'''Instagram 37.0.0.21.97 Android (7.0; {self.a} (24/7.0; 560dpi; 1440x2560; {self.b}.0.{self.c}.{self.d} 560dpi; 1440x2560; samsung; SM-G925F; zerolte; samsungexynos7420; uk_UA; 98288242)'''
+        useragent = f'''Instagram 184.0.0.30.117 Android (30/11; {self.a} (28/9; 320dpi; 720x1412; {self.b}.0.{self.c}.{self.d} Realme; RMX1941; RMX1941; mt6765; ru_RU; 285855802)'''
         return useragent
 
     def ingponich(self, cok):
