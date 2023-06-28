@@ -650,7 +650,7 @@ class Instagram:
         self.a = str(random.choice([
             'SM-A505FN',
             'SM-S911W',
-            'SM-S911U',
+            'SM-A507FN',
             'SM-S911E',
             'SM-S9110',
             'SM-S911N',
