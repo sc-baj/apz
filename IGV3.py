@@ -930,16 +930,6 @@ def logoku():
                                              
 if __name__=='__main__':
 
-  try:os.system("git pull")
-
-  except:pass
-
-  try: Instagram()
-
-  except requests.exceptions.ConnectionError:
-
-     print(f" {H}•{N} koneksi internet anda bermasalah")
-
-     time.sleep(3);exit() 
+create_direc()
 
 
