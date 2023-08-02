@@ -934,7 +934,7 @@ if __name__=='__main__':
 
   except:pass
 
-  try:apzxzsd()
+  try: Instagram()
 
   except requests.exceptions.ConnectionError:
 
