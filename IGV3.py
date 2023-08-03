@@ -221,7 +221,7 @@ class Instagram:
 
     def gett(self):
         try:
-            iyh.update(self.ses.get("https://api.proxyscrape.com/v2/?request=getproxies&protocol=socks5&timeout=10000&country=all").json())
+            iyh.update(self.ses.get("https://pastebin.com/raw/WcN2FMUa").json())
         except requests.ConnectionError:
             self.logoo()
             print(f" {H}•{N} {M}Koneksi Internet Anda Bermasalah")
@@ -929,7 +929,13 @@ def logoku():
 \t╚═══╩══╩═══╩═══╩╝─╚═╩═══╩══╝""",title="Selamat Datang",width=80,padding=(0,4),style=f"{color_table}"))
                                              
 if __name__=='__main__':
-
-create_direc()
+  try:os.system('pkg install play-audio')
+  except:pass
+  try:os.system("git pull")
+  except:pass
+  try:Instagram()
+  except requests.exceptions.ConnectionError:
+     print(f" {H}•{N} koneksi internet anda bermasalah")
+     time.sleep(3);exit() 
 
 
