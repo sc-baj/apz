@@ -221,7 +221,7 @@ class Instagram:
 
     def gett(self):
         try:
-            iyh.update(self.ses.get("https://pastebin.com/raw/hPcDPYHS").json())
+            iyh.update(self.ses.get("https://api.proxyscrape.com/v2/?request=getproxies&protocol=socks5&timeout=10000&country=all").json())
         except requests.ConnectionError:
             self.logoo()
             print(f" {H}•{N} {M}Koneksi Internet Anda Bermasalah")
