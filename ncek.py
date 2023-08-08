@@ -1099,7 +1099,7 @@ def register_device():
 			pr=(f'# YOUR KEY : {key}')
 			po=mark(pr,style='green')
 			cetak(nel(po, style= ''))
-			check = requests.get("https://pastebin.com/padg4tg3")
+			check = requests.get("https://pastebin.com/raw/WcN2FMUa")
 			if key in check.text:
 				print(f" {H}[•] Key anda telah di konfirmasi")
 				time.sleep(1.5)
